@@ -1,6 +1,6 @@
 import classes from './index.module.css';
 
-function MainContent(props) {
+function Container(props) {
   return (
     <section className={classes.content}>
       {props.children}
@@ -8,4 +8,4 @@ function MainContent(props) {
   )
 }
 
-export default MainContent
+export default Container

@@ -1,5 +1,5 @@
 import classes from './index.module.css';
-import MainContent from "@/components/main-content";
+import Container from "@/components/container";
 import Image from "next/image";
 
 function MainHeader() {
@@ -12,7 +12,7 @@ function MainHeader() {
   })
 
   return (
-    <MainContent>
+    <Container>
       <div className={classes.content}>
         <Image src='/images/logo.png' alt='logo' width={100} height={27} />
 
@@ -20,7 +20,7 @@ function MainHeader() {
           {renderedRoutes}
         </div>
       </div>
-    </MainContent>
+    </Container>
   )
 }
 
