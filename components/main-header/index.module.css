@@ -1,0 +1,16 @@
+.content {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 25px 0;
+}
+
+.routes_content {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 40px;
+}
+
+.route {
+    cursor: pointer;
+}

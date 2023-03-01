@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'CoFoSans';
+    font-style: normal;
+    font-weight: 400;
+
+    src: url('/fonts/CoFoSans-Regular.eot') format('eot'),
+    url('/fonts/CoFoSans-Regular.woff') format('woff'),
+    url('/fonts/CoFoSans-Regular.woff2') format('woff2'),
+    url('/fonts/CoFoSans-Regular.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'CoFoSans';
+    font-style: normal;
+    font-weight: 500;
+
+    src: url('/fonts/CoFoSans-Medium.eot') format('eot'),
+    url('/fonts/CoFoSans-Medium.woff') format('woff'),
+    url('/fonts/CoFoSans-Medium.woff2') format('woff2'),
+    url('/fonts/CoFoSans-Medium.ttf') format('ttf');
+}
+
+@font-face {
+    font-family: 'CoFoSans';
+    font-style: normal;
+    font-weight: 700;
+
+    src: url('/fonts/CoFoSans-Bold.eot') format('eot'),
+    url('/fonts/CoFoSans-Bold.woff') format('woff'),
+    url('/fonts/CoFoSans-Bold.woff2') format('woff2'),
+    url('/fonts/CoFoSans-Bold.ttf') format('ttf');
+}
