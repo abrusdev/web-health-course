@@ -1,0 +1,15 @@
+.content {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: #9176FF;
+
+    font-weight: 500;
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
+.content:hover {
+    opacity: 0.9;
+}

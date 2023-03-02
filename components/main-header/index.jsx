@@ -13,7 +13,7 @@ function MainHeader(props) {
           <h1 className={classes.title}>программа ДМС<br />«Курс здоровья»</h1>
           <p className={classes.desc}>Консультации и обследования в<br />комфортном формате</p>
 
-          <Button className={classes.btn_content}>Hello</Button>
+          <Button className={classes.btn_content} width={260} height={55}>Оформить</Button>
         </div>
       </Container>
     </div>
