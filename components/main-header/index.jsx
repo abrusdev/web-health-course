@@ -14,6 +14,8 @@ function MainHeader(props) {
           <p className={classes.desc}>Консультации и обследования в<br />комфортном формате</p>
 
           <Button className={classes.btn_content} width={260} height={55}>Оформить</Button>
+
+          <img className={classes.center_cover} src='/images/cover_main_3.svg' alt="cover" />
         </div>
       </Container>
     </div>

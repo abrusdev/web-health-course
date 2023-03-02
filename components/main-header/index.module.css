@@ -6,6 +6,7 @@
 
 .right_cover {
     position: absolute;
+    height: 700px;
     top: 0;
     right: 0;
 }
@@ -16,7 +17,22 @@
     left: 0;
 }
 
+.center_cover {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+
+    height: 400px;
+}
+
 .inner_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    height: 500px;
     transform: translateZ(1px);
     padding-left: 60px;
 }
