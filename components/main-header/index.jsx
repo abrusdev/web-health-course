@@ -1,26 +1,22 @@
 import classes from './index.module.css';
 import Container from "@/components/container";
-import Image from "next/image";
+import Button from "@/components/button";
 
-function MainHeader() {
-  const routes = ['О программе', 'Тарифы', 'Вопросы и ответы', 'Список клиник']
-
-  const renderedRoutes = routes.map((route) => {
-    return (
-      <p key={route} className={classes.route}>{route}</p>
-    );
-  })
-
+function MainHeader(props) {
   return (
-    <Container>
-      <div className={classes.content}>
-        <Image src='/images/logo.png' alt='logo' width={100} height={27} />
+    <div className={classes.content}>
+      <img className={classes.right_cover} src='/images/cover_main_1.svg' alt='cover' />
+      <img className={classes.left_cover} src='/images/cover_main_2.svg' alt='cover' />
 
-        <div className={classes.routes_content}>
-          {renderedRoutes}
+      <Container>
+        <div className={classes.inner_content}>
+          <h1 className={classes.title}>программа ДМС<br />«Курс здоровья»</h1>
+          <p className={classes.desc}>Консультации и обследования в<br />комфортном формате</p>
+
+          <Button className={classes.btn_content}>Hello</Button>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   )
 }
 

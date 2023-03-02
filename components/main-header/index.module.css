@@ -1,16 +1,44 @@
 .content {
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
 
-    padding: 25px 0;
+    position: relative;
 }
 
-.routes_content {
-    display: flex;
-    justify-content: space-between;
-    column-gap: 40px;
+.right_cover {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
-.route {
-    cursor: pointer;
+.left_cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.inner_content {
+    transform: translateZ(1px);
+    padding-left: 60px;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 120%;
+    text-transform: uppercase;
+
+    color: #161616;
+}
+
+.desc {
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 140%;
+
+    color: #161616;
+}
+
+.btn_content {
+    margin-top: 56px;
 }
