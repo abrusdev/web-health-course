@@ -1,13 +1,21 @@
 import classes from "./index.module.css";
 import { Container } from "@mui/material";
 import data from "./data.json"
+import MainCredibilityItem from "@/components/main-credibility/item";
 
 function MainCredibility() {
+  const renderedItems = data.map((item) => {
+    return <MainCredibilityItem key={item.id} item={item} />
+  })
 
   return (
     <>
       <Container className={classes.content}>
         <h2>Почему доверяют нам</h2>
+
+        <div className={classes.innerContent}>
+          {renderedItems}
+        </div>
       </Container>
     </>
   )
