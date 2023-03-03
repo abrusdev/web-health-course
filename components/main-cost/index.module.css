@@ -1,0 +1,17 @@
+.content {
+    margin-top: 112px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabsContent {
+    margin-top: 58px;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    column-gap: 75px;
+}
