@@ -1,11 +1,11 @@
 import classes from "./index.module.css";
 import Container from "@/components/container";
-import MainInclusionItem from "@/components/main-inclusions/item";
 import data from "./data.json"
+import MainCredibilityItem from "@/components/main-credibility/item";
 
 function MainInclusions() {
   const renderedItems = data.map((item) => {
-    return <MainInclusionItem key={item.id} item={item} />
+    return <MainCredibilityItem key={item.id} item={item} />
   })
 
   return (
