@@ -1,0 +1,27 @@
+.content {
+    position: relative;
+    background: #F5FAFF;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.innerContent {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+}
+
+.title {
+    flex: 1;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+}
+
+.next {
+    width: 42px;
+    height: 42px;
+    padding: 16px;
+    background: #9176FF;
+    border-radius: 100%;
+}

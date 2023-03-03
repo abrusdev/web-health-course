@@ -10,7 +10,7 @@ function MainHeader(props) {
 
       <Container>
         <div className={classes.inner_content}>
-          <h1 className={classes.title}>программа ДМС<br />«Курс здоровья»</h1>
+          <h1>программа ДМС<br />«Курс здоровья»</h1>
           <p className={classes.desc}>Консультации и обследования в<br />комфортном формате</p>
 
           <Button className={classes.btn_content} width={260} height={55}>Оформить</Button>

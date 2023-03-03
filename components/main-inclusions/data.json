@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Удобный персональный сервис",
+    "src": "/images/inclusion_1.svg",
+    "desktop": {
+      "flex": 1,
+      "height": 380,
+      "left": 0,
+      "bottom": 48
+    },
+    "mobile": {
+      "left": 0,
+      "bottom": 45
+    }
+  },
+  {
+    "id": 2,
+    "title": "Обследование и диагностика",
+    "src": "/images/inclusion_2.svg",
+    "desktop": {
+      "flex": 1,
+      "height": 380,
+      "left": 0,
+      "bottom": 40
+    }
+  },
+  {
+    "id": 3,
+    "title": "Выезд терапевта на дом",
+    "src": "/images/inclusion_3.svg",
+    "desktop": {
+      "flex": 1,
+      "height": 380,
+      "left": 40,
+      "bottom": 50
+    }
+  },
+  {
+    "id": 4,
+    "title": "Телемедицина",
+    "src": "/images/inclusion_4.svg",
+    "desktop": {
+      "bottom": 0,
+      "height": 530,
+      "left": 35,
+      "width": 410
+    }
+  },
+  {
+    "id": 5,
+    "title": "Очные приемы",
+    "src": "/images/inclusion_5.svg",
+    "desktop": {
+      "flex": 1,
+      "height": 530,
+      "left": 31,
+      "bottom": 0
+    }
+  },
+  {
+    "id": 6,
+    "title": "Дополнительные сервисы",
+    "src": "/images/inclusion_6.svg",
+    "desktop": {
+      "flex": 1,
+      "height": 530,
+      "left": 33,
+      "bottom": 61
+    }
+  }
+]
