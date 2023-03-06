@@ -1,7 +1,8 @@
 import classes from "./tariff.module.css";
 import MainCostTariffItem from "@/components/main-cost/tariff-item";
+import { cn } from "@/utils";
 
-function MainCostTariff({ tariff }) {
+function MainCostTariff({ tariff, isVisible }) {
 
   const renderedItems = tariff.items.map((item) => {
     return (
@@ -10,7 +11,7 @@ function MainCostTariff({ tariff }) {
   })
 
   return (
-    <div className={classes.content}>
+    <div className={cn(classes.content, isVisible && classes.activeContent)}>
 
       <h3 className={classes.title}>{tariff.title}</h3>
 

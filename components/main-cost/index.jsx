@@ -4,12 +4,23 @@ import MainCostTab from "@/components/main-cost/tab.index";
 import { useState } from "react";
 import MainCostTariff from "@/components/main-cost/tariff";
 import data from "./data.json";
+import Link from "next/link";
 
 function MainCost() {
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(-1);
 
   const handleTabSelect = (tab) => {
-    setSelectedTab(tab)
+    const isAlreadySelected = tab === selectedTab;
+
+    if (tab !== -1) {
+      setSelectedTab(-1);
+
+      setTimeout(() => {
+        setSelectedTab(isAlreadySelected ? -1 : tab)
+      }, 600);
+    } else {
+      setSelectedTab(isAlreadySelected ? -1 : tab)
+    }
   }
 
   return (
@@ -21,7 +32,7 @@ function MainCost() {
         <MainCostTab title='Для юридических лиц/ ИП' isActive={selectedTab === 1} onClick={() => handleTabSelect(1)} />
       </div>
 
-      {selectedTab !== -1 && <MainCostTariff tariff={data.tariffs[selectedTab]}/>}
+      <MainCostTariff tariff={data.tariffs[selectedTab] ?? data.tariffs[0]} isVisible={selectedTab !== -1} />
     </Container>
   )
 }

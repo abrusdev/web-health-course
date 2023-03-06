@@ -2,10 +2,21 @@
     margin-top: 40px;
     width: 100%;
 
-    padding: 50px;
+    height: 1px;
+    overflow: hidden;
+
+    padding: 0px;
 
     background: #F5FAFF;
     border-radius: 20px;
+
+    transition: all 0.6s;
+}
+
+.activeContent {
+    height: 900px;
+    padding: 50px;
+    transform: translateY(0px);
 }
 
 .title {

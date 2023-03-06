@@ -1,4 +1,5 @@
 .content {
+    cursor: pointer;
     height: 80px;
 
     flex: 1;
