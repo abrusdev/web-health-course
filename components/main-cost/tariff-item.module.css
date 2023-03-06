@@ -1,0 +1,15 @@
+.content {
+    flex: 1;
+
+    padding: 50px 60px;
+
+    background: #FFFFFF;
+    border: 2px solid #E8F3FF;
+    border-radius: 20px;
+}
+
+.title {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 30px;
+}

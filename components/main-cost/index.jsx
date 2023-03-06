@@ -2,7 +2,7 @@ import classes from "./index.module.css";
 import Container from "@/components/container";
 import MainCostTab from "@/components/main-cost/tab.index";
 import { useState } from "react";
-import MainTariff from "@/components/main-cost/tariff";
+import MainCostTariff from "@/components/main-cost/tariff";
 import data from "./data.json";
 
 function MainCost() {
@@ -21,7 +21,7 @@ function MainCost() {
         <MainCostTab title='Для юридических лиц/ ИП' isActive={selectedTab === 1} onClick={() => handleTabSelect(1)} />
       </div>
 
-      {selectedTab !== -1 && <MainTariff tariff={data.tariffs[selectedTab]}/>}
+      {selectedTab !== -1 && <MainCostTariff tariff={data.tariffs[selectedTab]}/>}
     </Container>
   )
 }
