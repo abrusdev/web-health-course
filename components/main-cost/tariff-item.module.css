@@ -8,8 +8,83 @@
     border-radius: 20px;
 }
 
+.content:hover {
+    background: rgba(255, 255, 255, 0.7);
+    border: 2px solid #9176FF;
+    border-radius: 20px;
+}
+
 .title {
     font-weight: 700;
     font-size: 28px;
     line-height: 30px;
+}
+
+.label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.mt14 {
+    margin-top: 14px;
+}
+
+.limit {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 30px;
+}
+
+.onlineContent {
+    display: flex;
+    gap: 10px;
+}
+
+.online {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.instrumental {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 30px;
+    color: #1958FA;
+}
+
+.btn {
+    cursor: pointer;
+    width: 220px;
+    height: 54px;
+    background: none;
+    border: 2px solid #1958FA;
+    border-radius: 10px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 30px;
+    color: #1958FA;
+}
+
+.btn:hover {
+    width: 220px;
+    height: 52px;
+
+    background: #1958FA;
+    border-radius: 10px;
+
+    color: #FFFFFF;
 }
