@@ -4,7 +4,6 @@ import MainCostTab from "@/components/main-cost/tab.index";
 import { useState } from "react";
 import MainCostTariff from "@/components/main-cost/tariff";
 import data from "./data.json";
-import Link from "next/link";
 
 function MainCost() {
   const [selectedTab, setSelectedTab] = useState(-1);
@@ -12,12 +11,13 @@ function MainCost() {
   const handleTabSelect = (tab) => {
     const isAlreadySelected = tab === selectedTab;
 
-    if (tab !== -1) {
+    if (selectedTab !== -1) {
       setSelectedTab(-1);
 
-      setTimeout(() => {
-        setSelectedTab(isAlreadySelected ? -1 : tab)
-      }, 600);
+      if (!isAlreadySelected)
+        setTimeout(() => {
+          setSelectedTab(tab)
+        }, 600);
     } else {
       setSelectedTab(isAlreadySelected ? -1 : tab)
     }
