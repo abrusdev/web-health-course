@@ -5,6 +5,7 @@ import MainCredibility from "@/components/main-credibility";
 import MainCost from "@/components/main-cost";
 import MainQuestions from "@/components/main-questions";
 import MainPartner from "@/components/main-partner";
+import MainFooter from "@/components/main-footer";
 
 function HomePage() {
   return (
@@ -22,6 +23,8 @@ function HomePage() {
       <MainQuestions />
 
       <MainPartner />
+
+      <MainFooter />
     </>
   )
 }
