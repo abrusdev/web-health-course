@@ -7,20 +7,23 @@ import data from "./data.json";
 import Image from "next/image";
 
 function MainCost() {
-  const [selectedTab, setSelectedTab] = useState(-1);
+  const [selectedTab, setSelectedTab] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleTabSelect = (tab) => {
     const isAlreadySelected = tab === selectedTab;
 
-    if (selectedTab !== -1) {
-      setSelectedTab(-1);
+    if (isVisible) {
+      setIsVisible(false)
 
       if (!isAlreadySelected)
         setTimeout(() => {
-          setSelectedTab(tab)
+          setSelectedTab(tab);
+          setIsVisible(true);
         }, 600);
     } else {
-      setSelectedTab(isAlreadySelected ? -1 : tab)
+      setSelectedTab(tab);
+      setIsVisible(true);
     }
   }
 
@@ -38,12 +41,12 @@ function MainCost() {
         <h2>Узнайте стоимость программы</h2>
 
         <div className={classes.tabsContent}>
-          <MainCostTab title='Для физических лиц' isActive={selectedTab === 0} onClick={() => handleTabSelect(0)} />
-          <MainCostTab title='Для юридических лиц/ ИП' isActive={selectedTab === 1}
+          <MainCostTab title='Для физических лиц' isActive={isVisible && selectedTab === 0} onClick={() => handleTabSelect(0)} />
+          <MainCostTab title='Для юридических лиц/ ИП' isActive={isVisible && selectedTab === 1}
                        onClick={() => handleTabSelect(1)} />
         </div>
 
-        <MainCostTariff tariff={data.tariffs[selectedTab] ?? data.tariffs[0]} isVisible={selectedTab !== -1} />
+        <MainCostTariff tariff={data.tariffs[selectedTab]} isVisible={isVisible} />
       </Container>
     </div>
   )
