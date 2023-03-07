@@ -16,46 +16,46 @@ function MainFooter() {
               <div className={classes.linksInnerContent}>
                 <h3>ОФОРМИТЬ ПОЛИС</h3>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Авто</a>
                 </Link>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Путешествия</a>
                 </Link>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Здоровье</a>
                 </Link>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Имущество</a>
                 </Link>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Активировать полис</a>
                 </Link>
               </div>
               <div className={classes.linksInnerContent}>
                 <h3>ИНФОРМАЦИЯ</h3>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Офисы продаж по РФ</a>
                 </Link>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Документы</a>
                 </Link>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Правила и тарифы</a>
                 </Link>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Обработка персональных данных</a>
                 </Link>
 
-                <Link href="https://www.google.com/">
+                <Link href="https://www.google.com/" legacyBehavior>
                   <a className={classes.link}>Карта сайтато</a>
                 </Link>
               </div>
