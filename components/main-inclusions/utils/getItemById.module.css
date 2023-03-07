@@ -5,14 +5,17 @@
     line-height: 140%;
 }
 
-.withDotsContent {
+.withDotsContent, .withDashContent {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
 }
+.withDashContent {
+    margin: 10px 0;
+}
 
 
-.withDotsContent span {
+.withDotsContent span, .withLineContent span {
     padding-left: 15px;
     position: relative;
     font-weight: 400;
@@ -22,4 +25,40 @@
 
 .withDotsContent span::before {
     content: '';
+    position: absolute;
+    left: 1px;
+    top: 7px;
+    background-color: black;
+    width: 5px;
+    height: 5px;
+    border-radius: 100%;
+}
+
+
+.withDashContent span::before {
+    content: '';
+    position: absolute;
+    left: 1px;
+    top: 11px;
+    background-color: black;
+    width: 10px;
+    height: 2px;
+}
+
+.button {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    color: #fff;
+    padding: 13px 54px;
+    background-color: #1958FA;
+    border-radius: 10px;
+    margin-top: 40px ;
+    border: 1px solid #1958FA;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: .9;
 }

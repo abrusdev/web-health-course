@@ -27,6 +27,10 @@
     font-size: 18px;
     line-height: 170%;
 }
+.link:hover {
+    color: #161616;
+    font-weight: 700;
+}
 
 .linksContent {
     height: 200px;
