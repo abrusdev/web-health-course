@@ -12,15 +12,15 @@ function MainNav() {
   })
 
   return (
-    <Container>
-      <div className={classes.content}>
+    <div className={classes.content}>
+      <Container className={classes.innerContent}>
         <Image src='/images/logo.png' alt='logo' width={100} height={27} />
 
         <div className={classes.routes_content}>
           {renderedRoutes}
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   )
 }
 

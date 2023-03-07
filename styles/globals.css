@@ -38,3 +38,13 @@ h2 {
   margin: auto;
   text-align: center;
 }
+
+@media all and (max-width: 1160px) {
+  h1 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+  }
+
+
+}

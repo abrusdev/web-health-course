@@ -8,8 +8,14 @@
     font-weight: 500;
     font-size: 18px;
     color: #FFFFFF;
+
+    -webkit-tap-highlight-color: transparent;
 }
 
 .content:hover {
+    opacity: 0.9;
+}
+
+.content:active, .content:focus, .content:visited {
     opacity: 0.9;
 }
