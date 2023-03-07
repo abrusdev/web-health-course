@@ -62,9 +62,9 @@ function MainFooterMobile() {
               <div className={classes.rightContent}>
                   <h3>ПОДПИШИТЕСЬ НА НАС</h3>
                   <div className={classes.topImages}>
-                      <img src="" alt=""/>
-                      <img src="" alt=""/>
-                      <img src="" alt=""/>
+                      <img src="/images/social1.png" alt=""/>
+                      <img src="/images/social2.png" alt=""/>
+                      <img src="/images/social3.png" alt=""/>
                   </div>
                   <div className={classes.bottomImages}>
                       <img src="" alt=""/>
