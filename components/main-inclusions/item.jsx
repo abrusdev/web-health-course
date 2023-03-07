@@ -3,26 +3,34 @@ import { cn } from "@/utils";
 import { useEffect, useMemo, useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import getItemById from "@/components/main-inclusions/utils/getItemById";
+import { useStyles as useCustomStyles } from "@/pages/context/StyleContext";
 
 const useStyles = makeStyles(() => ({
   content: {
-    flex: ({ desktop }) => (desktop.flex ? desktop.flex : ''),
-    width: ({ desktop }) => (desktop.width ? desktop.width : ''),
-    height: ({ desktop }) => (desktop.height ? desktop.height : ''),
+    flex: ({ props }) => (props && props.flex ? props.flex : ''),
+    width: ({ props }) => (props && props.width ? props.width : ''),
+    height: ({ props }) => (props && props.height ? props.height : ''),
   },
   image: {
-    position: 'absolute',
-    left: ({ desktop }) => desktop.left,
-    bottom: ({ desktop }) => desktop.bottom,
+    position: ({ isMobile }) => isMobile ? 'relative' : 'absolute',
+    marginTop: ({ isMobile }) => isMobile ? 12 : 0,
+    margin: "0 auto",
+    left: ({ props }) => props && props.left,
+    bottom: ({ props }) => props && props.bottom,
   }
 }));
 
 function MainInclusionItem({ item }) {
 
+  const { isMobile } = useCustomStyles();
+
   const [isOpen, setIsOpen] = useState(false)
 
-  const { desktop } = item;
-  const styles = useStyles({ desktop });
+  const { desktop, mobile } = item;
+
+  console.log(mobile);
+
+  const styles = useStyles({ props: isMobile ? mobile : desktop, isMobile });
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -34,8 +42,6 @@ function MainInclusionItem({ item }) {
 
   return (
     <div className={cn(styles.content, classes.content)}>
-      <img src={item.src} alt={item.title} className={styles.image} />
-
       <div className={classes.innerContent}>
         <h3 className={classes.title}>{item.title}</h3>
 
@@ -46,6 +52,8 @@ function MainInclusionItem({ item }) {
         {isOpen || <img src='/icons/ic_next.svg' alt="next" className={classes.next} onClick={handleOpen} />}
         {isOpen && <img src='/icons/ic_prev.svg' alt="prev" className={classes.prev} onClick={handleClose} />}
       </div>
+
+      <img src={item.src} alt={item.title} className={styles.image} />
     </div>
   );
 }

@@ -10,8 +10,7 @@
       "bottom": 48
     },
     "mobile": {
-      "left": 0,
-      "bottom": 45
+      "width": "100%"
     }
   },
   {
@@ -23,6 +22,9 @@
       "height": 380,
       "left": 0,
       "bottom": 40
+    },
+    "mobile": {
+      "width": "100%"
     }
   },
   {
@@ -34,6 +36,9 @@
       "height": 380,
       "left": 40,
       "bottom": 50
+    },
+    "mobile": {
+      "width": "100%"
     }
   },
   {
@@ -45,6 +50,9 @@
       "height": 530,
       "left": 35,
       "width": 410
+    },
+    "mobile": {
+      "width": "100%"
     }
   },
   {
@@ -56,6 +64,9 @@
       "height": 530,
       "left": 31,
       "bottom": 0
+    },
+    "mobile": {
+      "width": "100%"
     }
   },
   {
@@ -67,6 +78,9 @@
       "height": 530,
       "left": 33,
       "bottom": 61
+    },
+    "mobile": {
+      "width": "100%"
     }
   }
 ]

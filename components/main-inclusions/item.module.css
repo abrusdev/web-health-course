@@ -1,4 +1,8 @@
 .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     position: relative;
     overflow: hidden;
     background: #F5FAFF;
@@ -26,6 +30,8 @@
     width: 100%;
     height: 100%;
     padding: 30px 80px 30px 30px;
+
+    z-index: 2;
 
     top: 0;
     left: 100%;
