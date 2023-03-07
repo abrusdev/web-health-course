@@ -7,15 +7,17 @@ function MainQuestions() {
 
   const renderedItems = data.map((item) => {
     return (
-      <MainQuestionItem key={item.id} item={item}/>
+      <MainQuestionItem key={item.id} item={item} isLast={data.at(-1).id === item.id} />
     )
   })
 
   return (
     <Container className={classes.content}>
-      <h2 className={classes.title}>Вопросы и ответы</h2>
+      <h1 className={classes.title}>Вопросы и ответы</h1>
 
-      {renderedItems}
+      <div className={classes.innerContent}>
+        {renderedItems}
+      </div>
     </Container>
   )
 }

@@ -2,7 +2,7 @@ import classes from './index.module.css';
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
-function MainQuestionItem({ item }) {
+function MainQuestionItem({ item, isLast }) {
   const [isOpen, setIsOpen] = useState(false);
   const [contentHeight, setContentHeight] = useState();
 
