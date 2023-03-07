@@ -15,6 +15,8 @@
 }
 
 .phone {
+    cursor: pointer;
+
     display: flex;
     gap: 16px;
     align-items: center;
@@ -30,4 +32,28 @@
     font-size: 24px;
     line-height: 120%;
     color: #1958FA;
+}
+
+@media all and (max-width: 1160px) {
+    .content {
+        margin-top: 80px;
+    }
+
+    .innerContent {
+        gap: 20px;
+
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .phone {
+        display: flex;
+        justify-content: center;
+
+        height: 58px;
+
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 120%;
+    }
 }
