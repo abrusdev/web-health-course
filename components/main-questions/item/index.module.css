@@ -1,15 +1,64 @@
 .content {
+    position: relative;
+
     display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.template {
+    position: absolute;
+    top: -200%;
+    visibility: hidden;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.titleContent {
+    display: flex;
+    align-items: center;
+
     width: 100%;
     height: 56px;
-    align-items: center;
 
     background: rgba(255, 255, 255, 0.05);
     box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.titleContent:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .title {
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+}
+
+.desc {
+    display: flex;
+    align-items: center;
+
+    height: 0;
+    overflow: hidden;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+
+    color: #697077;
+    transition: 0.6s all;
+}
+
+.desc span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+
+    color: #697077;
 }
