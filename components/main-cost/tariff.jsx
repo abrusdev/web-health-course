@@ -11,14 +11,16 @@ function MainCostTariff({ tariff, isVisible }) {
   })
 
   return (
-    <div className={cn(classes.content, isVisible && classes.activeContent)}>
+    <div className={classes.content}>
+      <div className={cn(classes.innerContent, isVisible && classes.activeInnerContent)}>
 
-      <h3 className={classes.title}>{tariff.title}</h3>
+        <h3 className={classes.title}>{tariff.title}</h3>
 
-      <p className={classes.desc}>{tariff.desc}</p>
+        <p className={classes.desc}>{tariff.desc}</p>
 
-      <div className={classes.innerContent}>
-        {renderedItems}
+        <div className={classes.itemsContent}>
+          {renderedItems}
+        </div>
       </div>
     </div>
   )

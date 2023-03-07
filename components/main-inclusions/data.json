@@ -37,6 +37,9 @@
     }
   },
   {
+    "id": -1
+  },
+  {
     "id": 4,
     "title": "Телемедицина",
     "src": "/images/inclusion_4.svg",
