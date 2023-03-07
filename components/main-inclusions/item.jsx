@@ -18,8 +18,18 @@ const useStyles = makeStyles(() => ({
 
 function MainInclusionItem({ item }) {
 
+  const [isOpen, setIsOpen] = useState(false)
+
   const { desktop } = item;
   const styles = useStyles({ desktop });
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  }
+
+  const handleClose = () => {
+    setIsOpen(false);
+  }
 
   return (
     <div className={cn(styles.content, classes.content)}>
@@ -27,7 +37,13 @@ function MainInclusionItem({ item }) {
 
       <div className={classes.innerContent}>
         <h3 className={classes.title}>{item.title}</h3>
-        <img src='/icons/ic_next.svg' alt="next" className={classes.next} />
+
+        <div className={cn(classes.detailsContent, isOpen && classes.activeDetailsContent)}>
+
+        </div>
+
+        {isOpen || <img src='/icons/ic_next.svg' alt="next" className={classes.next} onClick={handleOpen} />}
+        {isOpen && <img src='/icons/ic_prev.svg' alt="prev" className={classes.prev} onClick={handleClose} />}
       </div>
     </div>
   );

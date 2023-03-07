@@ -5,7 +5,14 @@ import MainInclusionItem from "@/components/main-inclusions/item";
 
 function MainInclusions() {
   const renderedItems = data.map((item) => {
-    return <MainInclusionItem key={item.id} item={item} />
+    if (item.id === -1) {
+      return (
+        <div key={Math.random()} style={{flexBasis: '100%', height: 30}}></div>
+      )
+    }
+    return (
+      <MainInclusionItem key={item.id} item={item} />
+    )
   })
 
   return (
