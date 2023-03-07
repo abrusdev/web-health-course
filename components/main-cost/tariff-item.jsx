@@ -3,7 +3,7 @@ import { cn } from "@/utils";
 import Image from "next/image";
 import { useStyles } from "@/pages/context/StyleContext";
 
-function MainCostTariffItem({ item }) {
+function MainCostTariffItem({ item, onSelect }) {
   const { isMobile } = useStyles();
 
   return (
@@ -35,7 +35,7 @@ function MainCostTariffItem({ item }) {
       <p className={cn(classes.label, classes.mt20)}>Стоимость программы</p>
       <h5 className={classes.price}>10 720 ₽</h5>
 
-      <button className={cn(classes.btn, isMobile ? classes.mt14 : classes.mt20)}>Оформить</button>
+      <button className={cn(classes.btn, isMobile ? classes.mt14 : classes.mt20)} onClick={onSelect}>Оформить</button>
     </div>
   )
 }

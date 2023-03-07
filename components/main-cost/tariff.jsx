@@ -2,11 +2,11 @@ import classes from "./tariff.module.css";
 import MainCostTariffItem from "@/components/main-cost/tariff-item";
 import { cn } from "@/utils";
 
-function MainCostTariff({ tariff, isVisible }) {
+function MainCostTariff({ tariff, isVisible, onSelect }) {
 
   const renderedItems = tariff.items.map((item) => {
     return (
-      <MainCostTariffItem key={item.id} item={item} />
+      <MainCostTariffItem key={item.id} item={item} onSelect={onSelect} />
     )
   })
 
