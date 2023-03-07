@@ -1,5 +1,6 @@
 import classes from './index.module.css';
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 function MainQuestionItem({ item }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +26,7 @@ function MainQuestionItem({ item }) {
 
       <div className={classes.titleContent}>
         <p className={classes.title}>{item.title}</p>
+        <Image src={`/icons/${isOpen ? 'ic_minus' : 'ic_plus'}.svg`} alt='expand' width={24} height={24} />
       </div>
 
       <p className={classes.desc} style={{ height: contentHeight }}>
