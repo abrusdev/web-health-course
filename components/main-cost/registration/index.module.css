@@ -45,3 +45,42 @@
     display: flex;
     gap: 4px;
 }
+
+.miniTitle {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+}
+
+.label {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+}
+
+.withTwoItems {
+    width: 740px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    cursor: pointer;
+    margin-top: 40px;
+    width: 264px;
+    height: 53px;
+
+    background: #1958FA;
+    border: none;
+    border-radius: 10px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
