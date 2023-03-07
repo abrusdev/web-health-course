@@ -6,8 +6,13 @@ import MainCost from "@/components/main-cost";
 import MainQuestions from "@/components/main-questions";
 import MainPartner from "@/components/main-partner";
 import MainFooter from "@/components/main-footer";
+import { useStyles } from "@/pages/context/StyleContext";
+import MainFooterMobile from "@/components/main-footer/mobile";
 
 function HomePage() {
+
+  const { isMobile } = useStyles();
+
   return (
     <>
       <MainNav />
@@ -24,7 +29,13 @@ function HomePage() {
 
       <MainPartner />
 
-      <MainFooter />
+      {
+        isMobile
+          ?
+          <MainFooterMobile />
+          :
+          <MainFooter />
+      }
     </>
   )
 }
