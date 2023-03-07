@@ -1,8 +1,10 @@
 import classes from './index.module.css';
 import Container from "@/components/container";
 import Button from "@/components/button";
+import { useStyles } from "@/pages/context/StyleContext";
 
 function MainHeader(props) {
+
   return (
     <div className={classes.content}>
       <img className={classes.right_cover} src='/images/cover_main_1.svg' alt='cover' />
@@ -15,7 +17,7 @@ function MainHeader(props) {
 
           <img className={classes.center_cover} src='/images/cover_main_3.svg' alt="cover" />
 
-          <Button className={classes.btn_content} width='100%' height={55}>Оформить</Button>
+          <Button className={classes.btn_content} width={'100%'} height={55}>Оформить</Button>
         </div>
       </Container>
     </div>

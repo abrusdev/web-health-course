@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import { useMediaQuery } from "react-responsive";
 
 const StylesContext = createContext();
@@ -15,5 +15,9 @@ function StylesProvider({ children }) {
   )
 }
 
+function useStyles() {
+  return useContext(StylesContext);
+}
+
 export default StylesContext;
-export { StylesProvider };
+export { StylesProvider, useStyles };

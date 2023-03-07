@@ -19,9 +19,9 @@ function App({ Component, pageProps }) {
   </StylesProvider>
 }
 
-App.propTypes = {
-  Component: PropTypes.func,
-  pageProps: PropTypes.any,
-};
+// App.propTypes = {
+//   Component: PropTypes.func,
+//   pageProps: PropTypes.any,
+// };
 
 export default App;

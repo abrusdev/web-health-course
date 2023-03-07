@@ -51,6 +51,7 @@
 
 .btn_content {
     margin-top: 56px;
+    width: 255px;
 }
 
 @media all and (max-width: 1160px) {
@@ -77,6 +78,9 @@
     .inner_content {
         padding-top: 100px;
 
+        padding-left: 26px;
+        padding-right: 26px;
+
         display: flex;
         flex-direction: column;
         height: auto;
@@ -92,5 +96,6 @@
     .btn_content {
         margin-top: 25px;
         width: 100%;
+        padding: 0 10px;
     }
 }

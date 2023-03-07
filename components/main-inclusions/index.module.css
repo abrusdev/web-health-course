@@ -13,3 +13,10 @@
     margin-top: 40px;
     column-gap: 30px;
 }
+
+@media all and (max-width: 1160px) {
+    .innerContent {
+        padding-left: 26px;
+        padding-right: 26px;
+    }
+}
