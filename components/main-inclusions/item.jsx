@@ -2,6 +2,7 @@ import classes from "./item.module.css";
 import { cn } from "@/utils";
 import { useEffect, useMemo, useState } from "react";
 import { makeStyles } from "@material-ui/core";
+import getItemById from "@/components/main-inclusions/utils/getItemById";
 
 const useStyles = makeStyles(() => ({
   content: {
@@ -39,7 +40,7 @@ function MainInclusionItem({ item }) {
         <h3 className={classes.title}>{item.title}</h3>
 
         <div className={cn(classes.detailsContent, isOpen && classes.activeDetailsContent)}>
-
+          {getItemById(item.id)}
         </div>
 
         {isOpen || <img src='/icons/ic_next.svg' alt="next" className={classes.next} onClick={handleOpen} />}

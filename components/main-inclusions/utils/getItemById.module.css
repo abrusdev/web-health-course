@@ -1,0 +1,25 @@
+.title {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 140%;
+}
+
+.withDotsContent {
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+}
+
+
+.withDotsContent span {
+    padding-left: 15px;
+    position: relative;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+}
+
+.withDotsContent span::before {
+    content: '';
+}
