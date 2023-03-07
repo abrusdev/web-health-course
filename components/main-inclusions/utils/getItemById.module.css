@@ -5,12 +5,12 @@
     line-height: 140%;
 }
 
-.withDotsContent, .withLineContent {
+.withDotsContent, .withDashContent {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
 }
-.withLineContent {
+.withDashContent {
     margin: 10px 0;
 }
 
@@ -35,7 +35,7 @@
 }
 
 
-.withLineContent span::before {
+.withDashContent span::before {
     content: '';
     position: absolute;
     left: 1px;
@@ -55,4 +55,10 @@
     border-radius: 10px;
     margin-top: 40px ;
     border: 1px solid #1958FA;
+    transition: all .5s;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: .9;
 }

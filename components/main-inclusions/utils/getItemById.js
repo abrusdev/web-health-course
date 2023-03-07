@@ -22,14 +22,20 @@ function getItemById(id) {
             <>
                 <h5 className={classes.title}>Обследование и диагностика</h5>
                 <ul className={classes.withDotsContent}>
-                    Сотрудникам доступны:
+                    Застрахованным доступны:
                     <span> 17 500+ видов лабораторных исследований</span>
-                    а также инструментальные исследования:
-                    <span>УЗИ</span>
+                    <span>
+                        Популярные виды инструментальных исследований:
+                        <ul className={classes.withDashContent}>
+                          <span>УЗИ</span>
                     <span>ЭКГ</span>
                     <span>эхокардиограмма</span>
                     <span>эндоскопические исследования</span>
                     <span>и другие</span>
+                        </ul>
+
+                    </span>
+
                 </ul>
             </>
         )
@@ -51,7 +57,7 @@ function getItemById(id) {
                 <h5 className={classes.title}>Телемедицина</h5>
                 <ul className={classes.withDotsContent}>
                     <span>Замена очных посещений для сотрудников онлайн-консультациями по ряду медицинских вопросов:
-                        <ul className={classes.withLineContent}>
+                        <ul className={classes.withDashContent}>
                             <span>уточнение диагноза,</span>
                             <span> назначение анализов, </span>
                             <span>подбор аналогов лекарств</span>
