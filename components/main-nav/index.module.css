@@ -26,7 +26,7 @@
 .route {
     cursor: pointer;
 }
-.route:hover {
-    font-weight: 700;
-    color: #161616;
-}
+/*.route:hover {*/
+/*    font-weight: 700;*/
+/*    color: #161616;*/
+/*}*/

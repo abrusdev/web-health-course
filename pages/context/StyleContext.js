@@ -1,12 +1,16 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 
 const StylesContext = createContext();
 
 function StylesProvider({ children }) {
-  const isMobile = useMediaQuery({ maxWidth: 1160 });
+  const checkMobile = useMediaQuery({ maxWidth: 1160 });
 
-  console.log(isMobile)
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(checkMobile ? checkMobile : false);
+  }, [checkMobile]);
 
   return (
     <StylesContext.Provider value={{ isMobile }}>

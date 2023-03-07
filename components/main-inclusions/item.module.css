@@ -53,6 +53,8 @@
     border-radius: 100%;
     transition: all 0.5s;
     transform: translateY(1px);
+
+    z-index: 3;
 }
 
 .prev {
@@ -60,6 +62,8 @@
     width: 42px;
     height: 42px;
     transform: translateY(1px);
+
+    z-index: 3;
 }
 
 .next:hover {

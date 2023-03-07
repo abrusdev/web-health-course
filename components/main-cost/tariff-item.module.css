@@ -80,11 +80,57 @@
 }
 
 .btn:hover {
-    width: 220px;
-    height: 52px;
-
     background: #1958FA;
     border-radius: 10px;
 
     color: #FFFFFF;
+}
+
+@media all and (max-width: 1160px) {
+    .content {
+        padding: 30px;
+    }
+
+    .title {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .mt20 {
+        margin-top: 10px;
+    }
+
+    .label {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .limit {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .online {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .instrumental {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 140%;
+    }
+
+    .btn {
+        width: 177px;
+        height: 38px;
+
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 28px;
+    }
 }
