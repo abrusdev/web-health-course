@@ -16,6 +16,7 @@
 
 @media all and (max-width: 1160px) {
     .innerContent {
+        width: 100%;
         padding-left: 26px;
         padding-right: 26px;
     }

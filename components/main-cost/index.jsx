@@ -6,27 +6,29 @@ import MainCostTariff from "@/components/main-cost/tariff";
 import data from "./data.json";
 import Image from "next/image";
 import { useStyles } from "@/pages/context/StyleContext";
+import MainCostRegistration from "@/components/main-cost/registration";
 
 function MainCost() {
   const { isMobile } = useStyles();
 
+  const [step, setStep] = useState(-1);
+
   const [selectedTab, setSelectedTab] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
 
   const handleTabSelect = (tab) => {
     const isAlreadySelected = tab === selectedTab;
 
-    if (isVisible) {
-      setIsVisible(false)
+    if (step !== -1) {
+      setStep(-1)
 
       if (!isAlreadySelected)
         setTimeout(() => {
           setSelectedTab(tab);
-          setIsVisible(true);
+          setStep(0);
         }, 600);
     } else {
       setSelectedTab(tab);
-      setIsVisible(true);
+      setStep(0);
     }
   }
 
@@ -48,13 +50,16 @@ function MainCost() {
         <h1>Узнайте стоимость программы</h1>
 
         <div className={classes.tabsContent}>
-          <MainCostTab title='Для физических лиц' isActive={isVisible && selectedTab === 0}
+          <MainCostTab title='Для физических лиц' isActive={step !== -1 && selectedTab === 0}
                        onClick={() => handleTabSelect(0)} />
-          <MainCostTab title='Для юридических лиц/ ИП' isActive={isVisible && selectedTab === 1}
+          <MainCostTab title='Для юридических лиц/ ИП' isActive={step !== -1 && selectedTab === 1}
                        onClick={() => handleTabSelect(1)} />
         </div>
 
-        <MainCostTariff tariff={data.tariffs[selectedTab]} isVisible={isVisible} />
+        <MainCostTariff tariff={data.tariffs[selectedTab]} isVisible={step === 0} onSelect={() => setStep(1)} />
+
+        <MainCostRegistration tariff={data.tariffs[selectedTab]} isVisible={step === 1} />
+
       </Container>
     </div>
   )

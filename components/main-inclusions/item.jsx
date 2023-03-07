@@ -12,11 +12,12 @@ const useStyles = makeStyles(() => ({
     height: ({ props }) => (props && props.height ? props.height : ''),
   },
   image: {
+    maxWidth: '100%',
     position: ({ isMobile }) => isMobile ? 'relative' : 'absolute',
     marginTop: ({ isMobile }) => isMobile ? 12 : 0,
     margin: "0 auto",
-    left: ({ props }) => props && props.left,
-    bottom: ({ props }) => props && props.bottom,
+    left: ({ props }) => props && props.left ? props.left : 'auto',
+    bottom: ({ props }) => props && props.bottom ? props.bottom : 'auto',
   }
 }));
 
@@ -27,6 +28,8 @@ function MainInclusionItem({ item }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const { desktop, mobile } = item;
+
+  console.log({ props: isMobile ? mobile : desktop, isMobile });
 
   const styles = useStyles({ props: isMobile ? mobile : desktop, isMobile });
 

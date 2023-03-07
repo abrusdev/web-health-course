@@ -1,8 +1,11 @@
 import classes from './index.module.css';
 import Container from "@/components/container";
 import Image from "next/image";
+import { useStyles } from "@/pages/context/StyleContext";
 
 function MainNav() {
+  const { isMobile } = useStyles();
+
   const routes = ['О программе', 'Тарифы', 'Вопросы и ответы', 'Список клиник']
 
   const renderedRoutes = routes.map((route) => {
@@ -16,9 +19,11 @@ function MainNav() {
       <Container className={classes.innerContent}>
         <Image src='/images/logo.png' alt='logo' width={100} height={27} />
 
-        <div className={classes.routes_content}>
-          {renderedRoutes}
-        </div>
+        {!isMobile && (
+          <div className={classes.routes_content}>
+            {renderedRoutes}
+          </div>
+        )}
       </Container>
     </div>
   )
