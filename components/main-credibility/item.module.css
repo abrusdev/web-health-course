@@ -26,3 +26,23 @@
 
     color: #161616;
 }
+
+@media all and (max-width: 1160px) {
+    .content {
+        width: 100%;
+    }
+
+    .title {
+        margin-top: 20px;
+
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 120%;
+    }
+
+    .desc {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+    }
+}

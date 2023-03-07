@@ -11,7 +11,7 @@ function MainCredibility() {
   return (
     <>
       <Container className={classes.content}>
-        <h2>Почему доверяют нам</h2>
+        <h1>Почему доверяют нам</h1>
 
         <div className={classes.innerContent}>
           {renderedItems}
