@@ -1,0 +1,18 @@
+.picker {
+    display: flex;
+    align-items: center;
+
+    height: 45px;
+    padding: 0 20px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 23px;
+    color: #000000;
+
+    border: none;
+    outline: unset;
+}

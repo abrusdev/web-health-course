@@ -2,6 +2,7 @@ import classes from "./index.module.css"
 import { cn } from "@/utils";
 import MainCostRegistrationStatus from "@/components/main-cost/registration/status";
 import Input from "@/components/input";
+import DatePicker from "@/components/date-picker";
 
 function MainCostRegistration({ isVisible }) {
   return (
@@ -25,8 +26,9 @@ function MainCostRegistration({ isVisible }) {
           </div>
 
           <div>
-            <p>Дата рождения*</p>
-            <Input width={194} mt={8} />
+            <p className={classes.label}>Дата рождения*</p>
+            <DatePicker width={194} mt={8} />
+            {/*<Input width={194} mt={8} />*/}
           </div>
         </div>
 
