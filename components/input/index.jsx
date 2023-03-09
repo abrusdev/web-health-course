@@ -1,7 +1,8 @@
 import classes from "./index.module.css";
 import { useState } from "react";
+import { cn } from "@/utils";
 
-function Input({ width, mt, placeholder, onChange }) {
+function Input({ width, mt, placeholder, hasError, onChange }) {
 
   const [value, setValue] = useState('');
 
@@ -12,7 +13,7 @@ function Input({ width, mt, placeholder, onChange }) {
   }
 
   return (
-    <input className={classes.input} style={{ width: width, marginTop: mt }}
+    <input className={cn(classes.input, hasError && classes.errorInput)} style={{ width: width, marginTop: mt }}
            placeholder={placeholder}
            value={value} onChange={handleChange}
     />

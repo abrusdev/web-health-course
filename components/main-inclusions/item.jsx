@@ -29,8 +29,6 @@ function MainInclusionItem({ item }) {
 
   const { desktop, mobile } = item;
 
-  console.log({ props: isMobile ? mobile : desktop, isMobile });
-
   const styles = useStyles({ props: isMobile ? mobile : desktop, isMobile });
 
   const handleOpen = () => {

@@ -1,16 +1,19 @@
 import classes from "./index.module.css";
 import { useState } from "react";
+import { cn } from "@/utils";
 
-function TextArea({ width, mt, placeholder }) {
+function TextArea({ width, mt, placeholder, onChange }) {
 
   const [value, setValue] = useState('');
 
   const handleChange = (e) => {
+    if (onChange)
+      onChange(e.target.value)
     setValue(e.target.value)
   }
 
   return (
-    <textarea className={classes.area} style={{ width: width, marginTop: mt }}
+    <textarea className={cn(classes.area, classes.areaError)} style={{ width: width, marginTop: mt }}
            placeholder={placeholder}
            value={value} onChange={handleChange}
     />

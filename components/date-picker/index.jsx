@@ -1,7 +1,8 @@
 import classes from "./index.module.css";
 import { useState } from "react";
+import { cn } from "@/utils";
 
-function DatePicker({ width, mt, onChange }) {
+function DatePicker({ width, mt, onChange, hasError }) {
 
   const [value, setValue] = useState('');
 
@@ -11,7 +12,8 @@ function DatePicker({ width, mt, onChange }) {
   }
 
   return (
-    <input type='date' className={classes.picker} style={{ width: width, marginTop: mt }} onChange={handleChange} value={value} />
+    <input type='date' className={cn(classes.picker, hasError && classes.pickerError)}
+           style={{ width: width, marginTop: mt }} onChange={handleChange} value={value} />
   )
 }
 

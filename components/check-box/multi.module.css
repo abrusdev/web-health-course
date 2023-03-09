@@ -1,0 +1,9 @@
+.content {
+    display: flex;
+    gap: 24px;
+}
+
+.innerContent {
+    display: flex;
+    align-items: center;
+}

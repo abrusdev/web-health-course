@@ -1,10 +1,16 @@
-import classes from "./index.module.css"
 import { Checkbox } from "@mui/material";
 
-function CheckBox({ mt }) {
+function CheckBox({ mt, value, onChange }) {
+
+  const handleChange = (e) => {
+    if (onChange)
+    onChange(e.target.checked)
+    console.log(e.target.checked)
+  }
+
   return (
     <div>
-      <Checkbox style={{ marginTop: mt }} color="success"/>
+      <Checkbox style={{ marginTop: mt }} color="success" checked={value} onChange={handleChange} />
     </div>
   );
 }

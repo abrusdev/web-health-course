@@ -16,3 +16,7 @@
     border: none;
     outline: unset;
 }
+
+.pickerError {
+    border: 1px solid #ff9494;
+}
