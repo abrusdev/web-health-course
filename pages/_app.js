@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import { StylesProvider } from "@/pages/context/StyleContext";
+import { RegistrationProvider } from "@/pages/context/RegistrationContext";
 
 function App({ Component, pageProps }) {
 
@@ -15,7 +16,9 @@ function App({ Component, pageProps }) {
   }, []);
 
   return <StylesProvider>
-    <Component {...pageProps} />
+    <RegistrationProvider>
+      <Component {...pageProps} />
+    </RegistrationProvider>
   </StylesProvider>
 }
 

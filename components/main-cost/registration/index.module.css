@@ -21,7 +21,6 @@
 }
 
 .activeInnerContent {
-    height: 1400px;
     opacity: 1;
 }
 
@@ -62,6 +61,24 @@
     width: 740px;
     display: flex;
     justify-content: space-between;
+}
+
+.withGap10 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.addBtn {
+    cursor: pointer;
+
+    margin-top: 40px;
+
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+
+    color: #1958FA;
 }
 
 .btn {
