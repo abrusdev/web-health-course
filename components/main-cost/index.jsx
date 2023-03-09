@@ -34,9 +34,9 @@ function MainCost() {
     }
   }
 
-  const goToRegistration = () => {
+  const goToRegistration = (id) => {
     setStep(1)
-    setRegisterData({ ...registerData, holder_type: 0, tariff_type: 0 })
+    setRegisterData({ ...registerData, holder_type: selectedTab, tariff_type: id })
   }
 
 

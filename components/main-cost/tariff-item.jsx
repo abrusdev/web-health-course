@@ -35,7 +35,7 @@ function MainCostTariffItem({ item, onSelect }) {
       <p className={cn(classes.label, classes.mt20)}>Стоимость программы</p>
       <h5 className={classes.price}>{item.price}</h5>
 
-      <button className={cn(classes.btn, isMobile ? classes.mt14 : classes.mt20)} onClick={onSelect}>Оформить</button>
+      <button className={cn(classes.btn, isMobile ? classes.mt14 : classes.mt20)} onClick={() => onSelect(item.id)}>Оформить</button>
     </div>
   )
 }
