@@ -72,7 +72,32 @@ function MainFooter() {
           </div>
 
           <div className={classes.rightContent}>
-            <h3>ПОДПИШИТЕСЬ НА НАС</h3>
+
+            <div className={classes.rightContentTop}>
+              <h3>ПОДПИШИТЕСЬ НА НАС</h3>
+                <div className={classes.socialLogos}>
+                  <Link href="https://www.google.com/" legacyBehavior>
+                    <a className={classes.link}><img src="/images/vk_logo.svg" alt=""/></a>
+                  </Link>
+                  <Link href="https://www.google.com/" legacyBehavior>
+                    <a className={classes.link}><img src="/images/odno_logo.svg" alt=""/></a>
+                  </Link>
+                </div>
+
+                <div className={classes.appsLogos}>
+                  <Link href="https://www.google.com/" legacyBehavior>
+                    <a className={classes.link}><img src="/images/googlePlay_logo.svg" alt=""/></a>
+                  </Link>
+                  <Link href="https://www.google.com/" legacyBehavior>
+                    <a className={classes.link}><img src="/images/AppStore_logo.png" alt=""/></a>
+                  </Link>
+                </div>
+
+
+
+            </div>
+
+
 
             <p className={cn(classes.description, classes.mt55)}>
               Информацию, подлежащую раскрытию в соответствии с требованиями Федерального закона «О рынке ценных бумаг»
