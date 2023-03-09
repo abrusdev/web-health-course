@@ -39,12 +39,20 @@ h2 {
   text-align: center;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-image: url("../public/icons/ic_calendar.png");
+  opacity: 1;
+  display: block;
+  width: 20px;
+  height: 20px;
+  color: blue;
+}
+
 @media all and (max-width: 1160px) {
   h1 {
     font-weight: 500;
     font-size: 20px;
     line-height: 120%;
   }
-
 
 }
