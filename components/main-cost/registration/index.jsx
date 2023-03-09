@@ -184,6 +184,34 @@ function MainCostRegistration({ isVisible }) {
       errors = { ...errors, customDate: "error" };
     }
 
+    if (!data.insureds) data.insureds = [{}];
+
+    for (let i = data.insureds.length; i < insuredCount; i++) {
+      data.insureds.push({});
+    }
+
+    data.insureds.forEach((insured) => {
+      if (!insured.full_name) {
+        errors = { ...errors, insuredName: "error" };
+      }
+
+      if (!insured.birth_date) {
+        errors = { ...errors, insuredDate: "error" };
+      }
+
+      if (!insured.phone) {
+        errors = { ...errors, insuredPhone: "error" };
+      }
+
+      if (!insured.email) {
+        errors = { ...errors, insuredEmail: "error" };
+      }
+
+      if (!insured.address) {
+        errors = { ...errors, insuredAddress: "error" };
+      }
+    })
+
     if (errors) {
       return setData({ ...data, errors })
     }
