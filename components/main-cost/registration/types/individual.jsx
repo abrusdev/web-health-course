@@ -250,14 +250,14 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount }) {
       <div className={classes.withTwoItems} style={{ marginTop: 24, width: 586 }}>
         <div>
           <p className={classes.label}>Телефон</p>
-          <PhoneInput width={204} mt={8} placeholder='+7(___)___-__-__'
+          <PhoneInput width={244} mt={8} placeholder='+7(___)___-__-__'
                       hasError={!!data.errors && !!data.errors.phone}
                       onChange={(value) => handleChangeHolder({ phone: value })} />
         </div>
 
         <div>
           <p className={classes.label}>Email</p>
-          <Input width={358} mt={8}
+          <Input width={318} mt={8}
                  hasError={!!data.errors && !!data.errors.email}
                  onChange={(value) => handleChangeHolder({ email: value })} />
         </div>

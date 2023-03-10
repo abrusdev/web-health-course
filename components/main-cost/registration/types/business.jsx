@@ -6,10 +6,18 @@ import PhoneInput from "@/components/input/phone";
 import MainCostRegistrationInsured from "@/components/main-cost/registration/insured";
 import { useRegistration } from "@/pages/context/RegistrationContext";
 import DatePicker from "@/components/date-picker";
+import { useState } from "react";
+import ExcelModal from "@/components/main-cost/modal/excel";
+import axios from "axios";
 
 function MainCostRegistrationBusiness({ insuredCount, setInsuredCount }) {
 
   const { data, setData } = useRegistration()
+
+  const [showExcelModal, setShowExcelModal] = useState(false);
+
+  const [org, setOrg] = useState({});
+  const [holder, setHolder] = useState({});
 
   const renderedInsureds = []
 
@@ -23,42 +31,113 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount }) {
     }
 
     renderedInsureds.push(
-      <MainCostRegistrationInsured key={i} classes={classes} onChange={handleChangeInsured} />
+      <MainCostRegistrationInsured
+        key={i} item={data.insureds && data.insureds[i]}
+        classes={classes}
+        onChange={handleChangeInsured} />
     )
+  }
+
+  const handleChangeOrg = (props) => {
+    const newOrg = { ...org, ...props }
+
+    setOrg(newOrg)
+    setData({ ...data, organization: newOrg })
+  }
+
+  const handleChangeHolder = (props) => {
+    const newHolder = { ...holder, ...props }
+
+    setHolder(newHolder)
+    setData({ ...data, holder: newHolder })
+  }
+
+  const handleShowModal = () => {
+    setShowExcelModal(true);
+  }
+
+  const handleSuccess = (list) => {
+    setShowExcelModal(false);
+    setInsuredCount(insuredCount + list.length)
+
+    console.log([
+      ...data.insureds,
+      ...list
+    ]);
+
+    setData({
+      ...data,
+      insureds: [
+        ...data.insureds,
+        ...list,
+      ]
+    })
+  }
+
+  const handleSend = () => {
+    axios.post("https://kz-backend.vsk-trust.ru/api/v1/kz/calculate_form", data)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
   }
 
   return (
     <>
+      {showExcelModal && <ExcelModal onCancel={() => setShowExcelModal(false)} onSuccess={handleSuccess} />}
+
       <h3 className={classes.miniTitle} style={{ marginTop: 25 }}>Данные по Страхователю</h3>
 
       <p className={classes.label} style={{ marginTop: 24 }}>Тип организации</p>
-      <MultiCheckBox label1='ИП' label2='ООО' />
+      <MultiCheckBox
+        label1='ИП' label2='ООО'
+        onChange={(value) => handleChangeOrg({ legal_form: value === 0 ? "ИП" : "ООО" })} />
 
       <p className={classes.label} style={{ marginTop: 24 }}>Наименование организации</p>
-      <Input width={580} mt={8} />
+      <Input
+        width={580} mt={8}
+        onChange={(value) => handleChangeOrg({ full_name: value })}
+      />
 
       <p className={classes.label} style={{ marginTop: 24 }}>Адрес местонахождения</p>
-      <TextArea width={580} mt={12} placeholder='Кем выдан' />
+      <TextArea
+        width={580} mt={12}
+        onChange={(value) => handleChangeHolder({ address: value })} />
 
       <p className={classes.label} style={{ marginTop: 24 }}>ИНН</p>
-      <Input width={580} mt={8} />
+      <Input
+        width={580} mt={8}
+        onChange={(value) => handleChangeOrg({ inn: value })}
+      />
 
       <p className={classes.label} style={{ marginTop: 24 }}>КПП</p>
-      <Input width={580} mt={8} />
+      <Input
+        width={580} mt={8}
+        onChange={(value) => handleChangeOrg({ kpp: value })}
+      />
 
       <p className={classes.label} style={{ marginTop: 24 }}>ОГРН</p>
-      <Input width={580} mt={8} />
+      <Input
+        width={580} mt={8}
+        onChange={(value) => handleChangeOrg({ ogrn: value })}
+      />
 
 
       <div className={classes.withTwoItems} style={{ marginTop: 24, width: 586 }}>
         <div>
           <p className={classes.label}>Телефон</p>
-          <PhoneInput width={204} mt={8} placeholder='+7(___)___-__-__' />
+          <PhoneInput
+            width={244} mt={8} placeholder='+7(___)___-__-__'
+            onChange={(value) => handleChangeHolder({ phone: value })} />
         </div>
 
         <div>
           <p className={classes.label}>Email</p>
-          <Input width={358} mt={8} />
+          <Input
+            width={318} mt={8}
+            onChange={(value) => handleChangeHolder({ email: value })} />
         </div>
       </div>
 
@@ -78,15 +157,15 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount }) {
 
       <div className={classes.withTwoItems} style={{ marginTop: 24, width: 586 }}>
         <p className={classes.addBtn} onClick={() => setInsuredCount(insuredCount + 1)}>
-          + Добавить  Застрахованного ›
+          + Добавить Застрахованного ›
         </p>
 
-        <p className={classes.addBtn} >
+        <p className={classes.addBtn} onClick={handleShowModal}>
           + Добавить Застрахованных списком ›
         </p>
       </div>
 
-      <button className={classes.btn}>Отправить данные</button>
+      <button className={classes.btn} onClick={handleSend}>Отправить данные</button>
     </>
   )
 }
