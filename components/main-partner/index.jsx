@@ -1,7 +1,7 @@
 import classes from "./index.module.css";
 import { Container } from "@mui/material";
 import Image from "next/image";
-import { useStyles } from "@/pages/context/StyleContext";
+import { useStyles } from "@/context/StyleContext";
 
 function MainPartner() {
   const { isMobile } = useStyles();

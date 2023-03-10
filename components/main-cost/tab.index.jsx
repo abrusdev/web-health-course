@@ -1,7 +1,7 @@
 import classes from "./tab.module.css";
 import { cn } from "@/utils";
 import Image from "next/image";
-import { useStyles } from "@/pages/context/StyleContext";
+import { useStyles } from "@/context/StyleContext";
 
 function MainCostTab({ title, isActive, onClick }) {
 

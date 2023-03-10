@@ -12,7 +12,7 @@ function MainQuestions() {
   })
 
   return (
-    <Container className={classes.content}>
+    <Container className={classes.content} id="main-questions">
       <h1 className={classes.title}>Вопросы и ответы</h1>
 
       <div className={classes.innerContent}>

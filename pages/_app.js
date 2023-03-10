@@ -1,9 +1,8 @@
 import '@/styles/fonts.css'
 import '@/styles/globals.css'
 import { useEffect } from "react";
-import PropTypes from "prop-types";
-import { StylesProvider } from "@/pages/context/StyleContext";
-import { RegistrationProvider } from "@/pages/context/RegistrationContext";
+import { RegistrationProvider } from "@/context/RegistrationContext";
+import { StylesProvider } from "@/context/StyleContext";
 
 function App({ Component, pageProps }) {
 

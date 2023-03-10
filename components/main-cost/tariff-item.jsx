@@ -1,7 +1,7 @@
 import classes from "./tariff-item.module.css";
 import { cn } from "@/utils";
 import Image from "next/image";
-import { useStyles } from "@/pages/context/StyleContext";
+import { useStyles } from "@/context/StyleContext";
 
 function MainCostTariffItem({ item, onSelect }) {
   const { isMobile } = useStyles();

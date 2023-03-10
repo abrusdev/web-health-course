@@ -4,13 +4,13 @@ import Input from "@/components/input";
 import TextArea from "@/components/text-area";
 import PhoneInput from "@/components/input/phone";
 import MainCostRegistrationInsured from "@/components/main-cost/registration/insured";
-import { useRegistration } from "@/pages/context/RegistrationContext";
 import DatePicker from "@/components/date-picker";
 import { useState } from "react";
 import ExcelModal from "@/components/main-cost/modal/excel";
 import axios from "axios";
+import { useRegistration } from "@/context/RegistrationContext";
 
-function MainCostRegistrationBusiness({ insuredCount, setInsuredCount }) {
+function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit }) {
 
   const { data, setData } = useRegistration()
 
@@ -76,8 +76,11 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount }) {
 
   const handleSend = () => {
     axios.post("https://kz-backend.vsk-trust.ru/api/v1/kz/calculate_form", data)
-      .then((response) => {
-        console.log(response)
+      .then(({ data: response }) => {
+        if (response && response.data) {
+          setData({ ...data, result: response.data })
+          onSubmit()
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -146,14 +149,14 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount }) {
       {renderedInsureds}
 
 
-      <p className={classes.label} style={{ marginTop: 24 }}>Дата начала действия полиса</p>
+      {/*<p className={classes.label} style={{ marginTop: 24 }}>Дата начала действия полиса</p>*/}
 
-      <DatePicker
-        width={189} mt={8}
-        hasError={!!data.errors && !!data.errors.customDate}
-        onChange={(value) => {
-          setData({ ...data, custom_date: value })
-        }} />
+      {/*<DatePicker*/}
+      {/*  width={189} mt={8}*/}
+      {/*  hasError={!!data.errors && !!data.errors.customDate}*/}
+      {/*  onChange={(value) => {*/}
+      {/*    setData({ ...data, custom_date: undefined })*/}
+      {/*  }} />*/}
 
       <div className={classes.withTwoItems} style={{ marginTop: 24, width: 586 }}>
         <p className={classes.addBtn} onClick={() => setInsuredCount(insuredCount + 1)}>

@@ -4,18 +4,17 @@ import MainCostTab from "@/components/main-cost/tab.index";
 import { useState } from "react";
 import MainCostTariff from "@/components/main-cost/tariff";
 import Image from "next/image";
-import { useStyles } from "@/pages/context/StyleContext";
 import MainCostRegistration from "@/components/main-cost/registration";
-import { useRegistration } from "@/pages/context/RegistrationContext";
 import data from "./data.json";
+import { useRegistration } from "@/context/RegistrationContext";
+import { useStyles } from "@/context/StyleContext";
+import { scrollTo } from "@/utils";
 
 function MainCost() {
-  const { data: registerData, setData: setRegisterData } = useRegistration();
+  const { data: registerData, setData: setRegisterData, step, setStep } = useRegistration();
   const { isMobile } = useStyles();
 
-  const [step, setStep] = useState(-1);
-
-  const [selectedTab, setSelectedTab] = useState(0);
+  const [selectedTab, setSelectedTab] = useState(1);
 
   const handleSelectTab = (tab) => {
     const isAlreadySelected = tab === selectedTab;
@@ -39,9 +38,17 @@ function MainCost() {
     setRegisterData({ ...registerData, holder_type: selectedTab, tariff_type: id, insureds: [{}] })
   }
 
+  const goToPayment = (id) => {
+    setStep(2)
+
+    setTimeout(() => {
+      scrollTo("main-cost")
+    }, 600)
+  }
+
 
   return (
-    <div className={classes.content}>
+    <div className={classes.content} id="main-cost">
       {!isMobile && (
         <div className={classes.cover}>
           <Image src="/images/cover_main_4.png" alt="cover" width={178} height={356} />
@@ -66,7 +73,10 @@ function MainCost() {
 
         <MainCostTariff tariff={data.tariffs[selectedTab]} isVisible={step === 0} onSelect={goToRegistration} />
 
-        <MainCostRegistration tariff={data.tariffs[selectedTab]} isVisible={step === 1} />
+        <MainCostRegistration
+          tariff={data.tariffs[selectedTab]}
+          step={step} isVisible={step === 1 || step === 2}
+          onSubmit={goToPayment} />
 
       </Container>
     </div>

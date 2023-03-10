@@ -5,15 +5,17 @@ import MultiCheckBox from "@/components/check-box/multi";
 import PhoneInput from "@/components/input/phone";
 import TextArea from "@/components/text-area";
 import { useEffect, useState } from "react";
-import { useRegistration } from "@/pages/context/RegistrationContext";
 import CheckBox from "@/components/check-box";
 import axios from "axios";
 import MainCostRegistrationInsured from "@/components/main-cost/registration/insured";
+import { useRegistration } from "@/context/RegistrationContext";
 
 
-function MainCostRegistrationIndividual({ insuredCount, setInsuredCount }) {
+function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmit }) {
 
   const { data, setData } = useRegistration()
+
+  const [isItselfInsured, setIsItselfInsured] = useState(false);
 
   const [user, setUser] = useState({});
   const [holder, setHolder] = useState({});
@@ -34,7 +36,28 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount }) {
     )
   }
 
+  const handleChangeInsured = () => {
+    if (isItselfInsured)
+      data.insureds[0] = {
+        full_name: user.full_name,
+        birth_date: user.birth_date,
+        gender: user.gender,
+        phone: holder.phone,
+        email: holder.email,
+        address: holder.address
+      }
+    else
+      data.insureds[0] = {}
+  }
+
+  useEffect(() => {
+    handleChangeInsured()
+  }, [isItselfInsured]);
+
   const handleChangeUser = (props) => {
+    if (isItselfInsured)
+      handleChangeInsured();
+
     const newUser = { ...user, ...props }
 
     setUser(newUser)
@@ -48,8 +71,6 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount }) {
     setData({ ...data, holder: newHolder })
   }
 
-
-  console.log(data);
 
   useEffect(() => {
     if (!data.errors) return;
@@ -112,11 +133,6 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount }) {
       isChanged = true
     }
 
-    if (data.errors.customDate && data.custom_date) {
-      errors = { ...errors, customDate: undefined };
-      isChanged = true
-    }
-
     if (isChanged)
       setData({ ...data, errors })
 
@@ -169,37 +185,34 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount }) {
       errors = { ...errors, divisionCode: "error" };
     }
 
-    if (!user.custom_date) {
-      errors = { ...errors, customDate: "error" };
-    }
-
     if (!data.insureds) data.insureds = [{}];
 
     for (let i = data.insureds.length; i < insuredCount; i++) {
       data.insureds.push({});
     }
 
-    data.insureds.forEach((insured) => {
-      if (!insured.full_name) {
-        errors = { ...errors, insuredName: "error" };
-      }
+    if (!isItselfInsured)
+      data.insureds.forEach((insured) => {
+        if (!insured.full_name) {
+          errors = { ...errors, insuredName: "error" };
+        }
 
-      if (!insured.birth_date) {
-        errors = { ...errors, insuredDate: "error" };
-      }
+        if (!insured.birth_date) {
+          errors = { ...errors, insuredDate: "error" };
+        }
 
-      if (!insured.phone) {
-        errors = { ...errors, insuredPhone: "error" };
-      }
+        if (!insured.phone) {
+          errors = { ...errors, insuredPhone: "error" };
+        }
 
-      if (!insured.email) {
-        errors = { ...errors, insuredEmail: "error" };
-      }
+        if (!insured.email) {
+          errors = { ...errors, insuredEmail: "error" };
+        }
 
-      if (!insured.address) {
-        errors = { ...errors, insuredAddress: "error" };
-      }
-    })
+        if (!insured.address) {
+          errors = { ...errors, insuredAddress: "error" };
+        }
+      })
 
     if (errors) {
       return setData({ ...data, errors })
@@ -207,8 +220,11 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount }) {
 
 
     axios.post("https://kz-backend.vsk-trust.ru/api/v1/kz/calculate_form", data)
-      .then((response) => {
-        console.log(response)
+      .then(({ data: response }) => {
+        if (response && response.data) {
+          setData({ ...data, result: response.data })
+          onSubmit()
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -294,20 +310,12 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount }) {
       <h3 className={classes.miniTitle} style={{ marginTop: 64 }}>Данные по Застрахованному</h3>
 
       <div className={classes.withGap10} style={{ marginTop: 16 }}>
-        <CheckBox />
+        <CheckBox value={isItselfInsured} onChange={setIsItselfInsured} />
 
         <p className={classes.label}>Страхователь является Застрахованным</p>
       </div>
 
       {renderedInsureds}
-
-      <p className={classes.label} style={{ marginTop: 24 }}>Дата начала действия полиса</p>
-      <DatePicker
-        width={189} mt={8}
-        hasError={!!data.errors && !!data.errors.customDate}
-        onChange={(value) => {
-          setData({ ...data, custom_date: value })
-        }} />
 
       <p className={classes.addBtn} onClick={() => setInsuredCount(insuredCount + 1)}>
         + Добавить еще одного Застрахованного ›

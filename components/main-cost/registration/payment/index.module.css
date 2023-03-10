@@ -1,0 +1,77 @@
+.content {
+    margin-top: 60px;
+}
+
+.innerContent {
+    display: flex;
+    gap: 50px;
+    align-items: flex-end;
+}
+
+.innerLabel {
+    width: 140px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+}
+
+.innerTitle {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 30px;
+}
+
+.title {
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 140%;
+}
+
+.payment {
+    cursor: pointer;
+    margin-top: 24px;
+    width: 127px;
+    height: 84px;
+}
+
+.privacyContent {
+    display: flex;
+    align-items: center;
+}
+
+.privacy {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+}
+
+.privacy span {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 100%;
+    color: #1958FA;
+}
+
+.btn {
+    cursor: pointer;
+    margin-top: 48px;
+
+    width: 264px;
+    height: 53px;
+    background: #1958FA;
+    border: none;
+    outline: unset;
+    border-radius: 10px;
+
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}

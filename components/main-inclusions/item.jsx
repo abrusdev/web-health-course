@@ -3,7 +3,7 @@ import { cn } from "@/utils";
 import { useEffect, useMemo, useState } from "react";
 import { makeStyles } from "@material-ui/core";
 import getItemById from "@/components/main-inclusions/utils/getItemById";
-import { useStyles as useCustomStyles } from "@/pages/context/StyleContext";
+import { useStyles as useCustomStyles } from "@/context/StyleContext";
 
 const useStyles = makeStyles(() => ({
   content: {

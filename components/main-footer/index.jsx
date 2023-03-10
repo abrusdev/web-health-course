@@ -7,7 +7,7 @@ import { cn } from "@/utils";
 function MainFooter() {
 
   return (
-    <div className={classes.content}>
+    <div className={classes.content} id="main-footer">
       <Container>
         <div className={classes.innerContent}>
           <div className={classes.leftContent}>

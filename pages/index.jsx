@@ -6,8 +6,8 @@ import MainCost from "@/components/main-cost";
 import MainQuestions from "@/components/main-questions";
 import MainPartner from "@/components/main-partner";
 import MainFooter from "@/components/main-footer";
-import { useStyles } from "@/pages/context/StyleContext";
 import MainFooterMobile from "@/components/main-footer/mobile";
+import { useStyles } from "@/context/StyleContext";
 
 function HomePage() {
 

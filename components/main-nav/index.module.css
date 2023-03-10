@@ -20,11 +20,21 @@
 .routes_content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     column-gap: 40px;
 }
 
 .route {
+    width: 150px;
     cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.route:hover {
+    font-size: 17px;
+    font-weight: 500;
 }
 
 @media all and (max-width: 1160px) {

@@ -2,8 +2,8 @@ import classes from "./index.module.css";
 import Container from "@/components/container";
 import data from "./data.json"
 import MainInclusionItem from "@/components/main-inclusions/item";
-import { useStyles } from "@/pages/context/StyleContext";
 import { useEffect, useState } from "react";
+import { useStyles } from "@/context/StyleContext";
 
 function MainInclusions() {
   const { isMobile } = useStyles();
@@ -38,8 +38,8 @@ function MainInclusions() {
   })
 
   return (
-    <Container className={classes.content}>
-      <h1>Что включено в программу</h1>
+    <Container className={classes.content} id="main-inclusions">
+      <h1 >Что включено в программу</h1>
 
       <div className={classes.innerContent}>
         {renderedItems}

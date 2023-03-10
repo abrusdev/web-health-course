@@ -3,12 +3,12 @@ import DatePicker from "@/components/date-picker";
 import { useState } from "react";
 import MultiCheckBox from "@/components/check-box/multi";
 import PhoneInput from "@/components/input/phone";
-import { useRegistration } from "@/pages/context/RegistrationContext";
+import { useRegistration } from "@/context/RegistrationContext";
 
-function MainCostRegistrationInsured({ classes, item, onChange }) {
+function MainCostRegistrationInsured({ classes, item = {}, onChange }) {
 
   const { data, setData } = useRegistration();
-  const [insured, setInsured] = useState({});
+  const [insured, setInsured] = useState(item);
 
   const handleChange = (props) => {
     setInsured({ ...insured, ...props });

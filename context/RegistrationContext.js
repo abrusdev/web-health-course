@@ -5,13 +5,15 @@ const RegistrationContext = createContext();
 function RegistrationProvider({ children }) {
 
   const [value, setValue] = useState({})
+  const [step, setStep] = useState(-1)
 
   return (
     <RegistrationContext.Provider value={{
       data: value,
       setData: (data) => {
         setValue(data)
-      }
+      },
+      step, setStep
     }}>
       {children}
     </RegistrationContext.Provider>
