@@ -10,6 +10,7 @@
     flex-direction: column;
     row-gap: 5px;
 }
+
 .withDashContent {
     margin: 10px 0;
 }
@@ -53,7 +54,7 @@
     padding: 13px 54px;
     background-color: #1958FA;
     border-radius: 10px;
-    margin-top: 40px ;
+    margin-top: 40px;
     border: 1px solid #1958FA;
     transition: all .5s;
     cursor: pointer;
@@ -61,4 +62,10 @@
 
 .button:hover {
     opacity: .9;
+}
+
+@media all and (max-width: 1160px) {
+    .button {
+        padding: 13px;
+    }
 }
