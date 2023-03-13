@@ -10,7 +10,8 @@
       "bottom": 48
     },
     "mobile": {
-      "width": "100%"
+      "width": "100%",
+      "bottom": 0
     }
   },
   {
@@ -24,7 +25,8 @@
       "bottom": 40
     },
     "mobile": {
-      "width": "100%"
+      "width": "100%",
+      "bottom": 0
     }
   },
   {
@@ -38,7 +40,8 @@
       "bottom": 50
     },
     "mobile": {
-      "width": "100%"
+      "width": "100%",
+      "bottom": 0
     }
   },
   {
@@ -52,7 +55,8 @@
       "width": 410
     },
     "mobile": {
-      "width": "100%"
+      "width": "100%",
+      "bottom": 0
     }
   },
   {
@@ -66,7 +70,8 @@
       "bottom": 0
     },
     "mobile": {
-      "width": "100%"
+      "width": "100%",
+      "bottom": 0
     }
   },
   {
@@ -80,7 +85,8 @@
       "bottom": 61
     },
     "mobile": {
-      "width": "100%"
+      "width": "100%",
+      "bottom": 0
     }
   }
 ]

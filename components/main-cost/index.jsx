@@ -35,7 +35,7 @@ function MainCost() {
 
   const goToRegistration = (id) => {
     setStep(1)
-    setRegisterData({ ...registerData, holder_type: selectedTab, tariff_type: id, insureds: [{}] })
+    setRegisterData({ holder_type: selectedTab, tariff_type: id, insureds: [{}] })
   }
 
   const goToPayment = (id) => {

@@ -16,8 +16,8 @@ const useStyles = makeStyles(() => ({
     position: ({ isMobile }) => isMobile ? 'relative' : 'absolute',
     marginTop: ({ isMobile }) => isMobile ? 12 : 0,
     margin: "0 auto",
-    left: ({ props }) => props && props.left ? props.left : 'auto',
-    bottom: ({ props }) => props && props.bottom ? props.bottom : 'auto',
+    left: ({ props }) => props.left,
+    bottom: ({ props }) => props.bottom,
   }
 }));
 

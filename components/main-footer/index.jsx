@@ -12,54 +12,54 @@ function MainFooter() {
         <div className={classes.innerContent}>
           <div className={classes.leftContent}>
 
-            <div className={classes.linksContent}>
-              <div className={classes.linksInnerContent}>
-                <h3>ОФОРМИТЬ ПОЛИС</h3>
+            {/*<div className={classes.linksContent}>*/}
+            {/*  <div className={classes.linksInnerContent}>*/}
+            {/*    <h3>ОФОРМИТЬ ПОЛИС</h3>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Авто</a>
-                </Link>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Авто</a>*/}
+            {/*    </Link>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Путешествия</a>
-                </Link>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Путешествия</a>*/}
+            {/*    </Link>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Здоровье</a>
-                </Link>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Здоровье</a>*/}
+            {/*    </Link>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Имущество</a>
-                </Link>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Имущество</a>*/}
+            {/*    </Link>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Активировать полис</a>
-                </Link>
-              </div>
-              <div className={classes.linksInnerContent}>
-                <h3>ИНФОРМАЦИЯ</h3>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Активировать полис</a>*/}
+            {/*    </Link>*/}
+            {/*  </div>*/}
+            {/*  <div className={classes.linksInnerContent}>*/}
+            {/*    <h3>ИНФОРМАЦИЯ</h3>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Офисы продаж по РФ</a>
-                </Link>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Офисы продаж по РФ</a>*/}
+            {/*    </Link>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Документы</a>
-                </Link>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Документы</a>*/}
+            {/*    </Link>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Правила и тарифы</a>
-                </Link>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Правила и тарифы</a>*/}
+            {/*    </Link>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Обработка персональных данных</a>
-                </Link>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Обработка персональных данных</a>*/}
+            {/*    </Link>*/}
 
-                <Link href="https://www.google.com/" legacyBehavior>
-                  <a className={classes.link}>Карта сайтато</a>
-                </Link>
-              </div>
-            </div>
+            {/*    <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*      <a className={classes.link}>Карта сайтато</a>*/}
+            {/*    </Link>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
 
             <p className={cn(classes.description, classes.mt55)}>
               Лицензия Банка России от 11.09.2015: СЛ №0621, СИ №0621, ОС №0621, ОС №0621-04, ОС №0621-05, ПС №0621.
@@ -73,31 +73,26 @@ function MainFooter() {
 
           <div className={classes.rightContent}>
 
-            <div className={classes.rightContentTop}>
-              <h3>ПОДПИШИТЕСЬ НА НАС</h3>
-                <div className={classes.socialLogos}>
-                  <Link href="https://www.google.com/" legacyBehavior>
-                    <a className={classes.link}><img src="/images/vk_logo.svg" alt=""/></a>
-                  </Link>
-                  <Link href="https://www.google.com/" legacyBehavior>
-                    <a className={classes.link}><img src="/images/odno_logo.svg" alt=""/></a>
-                  </Link>
-                </div>
+            {/*<div className={classes.rightContentTop}>*/}
+            {/*  <h3>ПОДПИШИТЕСЬ НА НАС</h3>*/}
+            {/*    <div className={classes.socialLogos}>*/}
+            {/*      <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*        <a className={classes.link}><img src="/images/vk_logo.svg" alt=""/></a>*/}
+            {/*      </Link>*/}
+            {/*      <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*        <a className={classes.link}><img src="/images/odno_logo.svg" alt=""/></a>*/}
+            {/*      </Link>*/}
+            {/*    </div>*/}
 
-                <div className={classes.appsLogos}>
-                  <Link href="https://www.google.com/" legacyBehavior>
-                    <a className={classes.link}><img src="/images/googlePlay_logo.svg" alt=""/></a>
-                  </Link>
-                  <Link href="https://www.google.com/" legacyBehavior>
-                    <a className={classes.link}><img src="/images/AppStore_logo.png" alt=""/></a>
-                  </Link>
-                </div>
-
-
-
-            </div>
-
-
+            {/*    <div className={classes.appsLogos}>*/}
+            {/*      <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*        <a className={classes.link}><img src="/images/googlePlay_logo.svg" alt=""/></a>*/}
+            {/*      </Link>*/}
+            {/*      <Link href="https://www.google.com/" legacyBehavior>*/}
+            {/*        <a className={classes.link}><img src="/images/AppStore_logo.png" alt=""/></a>*/}
+            {/*      </Link>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
 
             <p className={cn(classes.description, classes.mt55)}>
               Информацию, подлежащую раскрытию в соответствии с требованиями Федерального закона «О рынке ценных бумаг»
