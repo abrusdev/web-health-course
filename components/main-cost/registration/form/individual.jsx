@@ -28,24 +28,33 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
   let [error, setError] = useState(null);
   const [loader, setLoader] = useState(false);
 
-  const renderedInsureds = []
+  const [renderedInsureds, setRenderedInsureds] = useState([]);
 
-  for (let i = 0; i < insuredCount; i++) {
-    const handleChangeInsured = (value) => {
-      if (!data.insureds) data.insureds = []
+  const [lastDefaultInsured, setLastDefaultInsured] = useState({});
 
-      data.insureds[i] = value
+  function fetchInsureds() {
+    for (let i = 0; i < insuredCount; i++) {
+      const handleChangeInsured = (value) => {
+        if (!data.insureds) data.insureds = []
 
-      setData({ ...data })
+        data.insureds[i] = value
+
+        setData({ ...data })
+      }
+
+      const list = []
+
+      list.push(
+        <MainCostRegistrationInsured key={i} classes={classes} onChange={handleChangeInsured} />
+      )
+
+      setRenderedInsureds(list);
     }
-
-    renderedInsureds.push(
-      <MainCostRegistrationInsured key={i} classes={classes} onChange={handleChangeInsured} />
-    )
   }
 
   const handleChangeInsured = () => {
-    if (isItselfInsured)
+    if (isItselfInsured) {
+      setLastDefaultInsured(data.insureds[0]);
       data.insureds[0] = {
         full_name: user.full_name,
         birth_date: user.birth_date,
@@ -54,13 +63,17 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
         email: holder.email,
         address: holder.address
       }
-    else
-      data.insureds[0] = {}
+    } else
+      data.insureds[0] = lastDefaultInsured;
+
+    setData({ ...data })
+
+    fetchInsureds()
   }
 
   useEffect(() => {
     handleChangeInsured()
-  }, [isItselfInsured]);
+  }, [isItselfInsured, user, holder]);
 
   const handleChangeUser = (props) => {
     if (isItselfInsured)
