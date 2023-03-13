@@ -9,6 +9,7 @@ import CheckBox from "@/components/check-box";
 import axios from "axios";
 import MainCostRegistrationInsured from "@/components/main-cost/registration/insured";
 import { useRegistration } from "@/context/RegistrationContext";
+import ErrorModel from "@/components/main-cost/modal/error";
 
 
 function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmit }) {
@@ -19,6 +20,8 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
 
   const [user, setUser] = useState({});
   const [holder, setHolder] = useState({});
+
+  let [error, setError] = useState(null);
 
   const renderedInsureds = []
 
@@ -138,50 +141,68 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
 
   }, [data]);
 
+  const showError = (message) => {
+    if (!error) {
+      error = message;
+      setError(message)
+    }
+  }
+
   const handleSend = () => {
     let errors;
 
     if (!user.full_name) {
+      showError("Заполните ФИО");
       errors = { ...errors, full_name: "error" };
     }
 
     if (!user.birth_date || user.birth_date.length < 10) {
+      showError("Заполните Дата рождения");
       errors = { ...errors, birth_date: "error" };
     }
 
     if (!holder.address) {
+      showError("Заполните Адрес");
       errors = { ...errors, address: "error" };
     }
 
     if (!holder.phone || holder.phone.length !== 11) {
+      showError("Заполните Телефон");
       errors = { ...errors, phone: "error" };
     }
 
     if (!holder.email) {
+      showError("Заполните Email");
       errors = { ...errors, email: "error" };
     }
 
     if (!user.passport_serial) {
+      showError("Заполните Паспортные данные");
       errors = { ...errors, passSerial: "error" };
     }
 
     if (!user.passport_number) {
+      showError("Заполните Паспортные данные");
       errors = { ...errors, passNumber: "error" };
     }
 
     if (!user.date_issue) {
+      showError("Заполните Паспортные данные");
       errors = { ...errors, dateIssue: "error" };
     }
 
     if (!user.whom) {
+      showError("Заполните Паспортные данные");
       errors = { ...errors, whom: "error" };
     }
 
     if (!user.inn) {
+      showError("Заполните Паспортные данные");
       errors = { ...errors, inn: "error" };
     }
 
     if (!user.division_code) {
+      showError("Заполните Паспортные данные");
       errors = { ...errors, divisionCode: "error" };
     }
 
@@ -194,22 +215,27 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
     if (!isItselfInsured)
       data.insureds.forEach((insured) => {
         if (!insured.full_name) {
+          showError("Заполните Данные по Застрахованному");
           errors = { ...errors, insuredName: "error" };
         }
 
         if (!insured.birth_date) {
+          showError("Заполните Данные по Застрахованному");
           errors = { ...errors, insuredDate: "error" };
         }
 
         if (!insured.phone) {
+          showError("Заполните Данные по Застрахованному");
           errors = { ...errors, insuredPhone: "error" };
         }
 
         if (!insured.email) {
+          showError("Заполните Данные по Застрахованному");
           errors = { ...errors, insuredEmail: "error" };
         }
 
         if (!insured.address) {
+          showError("Заполните Данные по Застрахованному");
           errors = { ...errors, insuredAddress: "error" };
         }
       })
@@ -226,13 +252,16 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
           onSubmit()
         }
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(({ response }) => {
+        if (response.data.error)
+          showError(response.data.error)
       })
   }
 
   return (
     <>
+      {error && <ErrorModel message={error} onCancel={() => setError(null)} />}
+
       <h3 className={classes.miniTitle} style={{ marginTop: 25 }}>Данные по Страхователю</h3>
 
       <div className={classes.withTwoItems} style={{ marginTop: 24 }}>

@@ -7,6 +7,7 @@ import MainCostRegistrationIndividual from "@/components/main-cost/registration/
 import MainCostRegistrationBusiness from "@/components/main-cost/registration/form/business";
 import { useRegistration } from "@/context/RegistrationContext";
 import MainCostRegistrationPayment from "@/components/main-cost/registration/payment";
+import ErrorModel from "@/components/main-cost/modal/error";
 
 
 const useStyles = makeStyles(() => ({

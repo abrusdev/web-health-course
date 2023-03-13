@@ -9,6 +9,7 @@ import { useState } from "react";
 import ExcelModal from "@/components/main-cost/modal/excel";
 import axios from "axios";
 import { useRegistration } from "@/context/RegistrationContext";
+import ErrorModel from "@/components/main-cost/modal/error";
 
 function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit }) {
 
@@ -18,6 +19,8 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
 
   const [org, setOrg] = useState({});
   const [holder, setHolder] = useState({});
+
+  let [error, setError] = useState(null);
 
   const renderedInsureds = []
 
@@ -74,6 +77,13 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
     })
   }
 
+  const showError = (message) => {
+    if (!error) {
+      error = message;
+      setError(message)
+    }
+  }
+
   const handleSend = () => {
     axios.post("https://kz-backend.vsk-trust.ru/api/v1/kz/calculate_form", data)
       .then(({ data: response }) => {
@@ -82,13 +92,16 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
           onSubmit()
         }
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(({ response }) => {
+        if (response.data.error)
+          showError(response.data.error)
       })
   }
 
   return (
     <>
+      {error && <ErrorModel message={error} onCancel={() => setError(null)} />}
+
       {showExcelModal && <ExcelModal onCancel={() => setShowExcelModal(false)} onSuccess={handleSuccess} />}
 
       <h3 className={classes.miniTitle} style={{ marginTop: 25 }}>Данные по Страхователю</h3>

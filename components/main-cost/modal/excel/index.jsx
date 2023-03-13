@@ -2,29 +2,10 @@ import classes from "./index.module.css";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import axios from "axios";
+import BaseModel from "@/components/main-cost/modal/base";
 
 function ExcelModal({ onCancel, onSuccess }) {
-  const contentRef = useRef();
-  const ref = useRef(null)
-  const [mounted, setMounted] = useState(false)
-
   const [selectedFile, setSelectedFile] = useState(null);
-
-  useEffect(() => {
-    ref.current = document.querySelector("#portal")
-    setMounted(true)
-
-    document.querySelector("body").style.overflow = "hidden"
-
-    return () => {
-      document.querySelector("body").style.overflow = "auto"
-    }
-  }, [])
-
-  const handleClick = (e) => {
-    if (e.target.contains(contentRef.current))
-      onCancel()
-  }
 
   const handleDownload = (e) => {
     e.preventDefault();
@@ -52,8 +33,8 @@ function ExcelModal({ onCancel, onSuccess }) {
     }
   }
 
-  return (mounted && ref.current) ? createPortal((
-    <div className={classes.content} onClick={handleClick} ref={contentRef}>
+  return (
+    <BaseModel className={classes.content} onCancel={onCancel}>
       <form className={classes.innerContent}>
         <img src='/images/cover_main_7.png' alt='cover' className={classes.cover1} />
         <img src='/images/cover_main_6.png' alt='cover' className={classes.cover2} />
@@ -80,8 +61,8 @@ function ExcelModal({ onCancel, onSuccess }) {
 
         <button className={classes.thirdBtn} onClick={handleUpload}>Отправить данные</button>
       </form>
-    </div>
-  ), ref.current) : null
+    </BaseModel>
+  );
 }
 
 export default ExcelModal;

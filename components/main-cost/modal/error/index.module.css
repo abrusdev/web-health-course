@@ -1,0 +1,27 @@
+.content {
+    position: relative;
+    width: 400px;
+    padding: 20px 30px;
+}
+
+.close {
+    cursor: pointer;
+    position: absolute;
+    right: 30px;
+    top: 20px;
+}
+
+.title {
+    color: #ff9494;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 120%;
+}
+
+.desc {
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+    text-align: center;
+}
