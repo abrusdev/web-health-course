@@ -4,34 +4,55 @@ import { useRegistration } from "@/context/RegistrationContext";
 import axios from "axios";
 import { useState } from "react";
 import { scrollTo } from "@/utils";
+import Loader from "@/components/loader";
+import ErrorModel from "@/components/main-cost/modal/error";
 
 function MainCostRegistrationPayment() {
   const [hasFirstPolicy, setHasFirstPolicy] = useState(false);
   const [hasSecondPolicy, setHasSecondPolicy] = useState(false);
 
+  let [error, setError] = useState(null);
+  const [loader, setLoader] = useState(false);
+
   const { data, setStep } = useRegistration();
+
+  const showError = (message) => {
+    if (!error) {
+      error = message;
+      setError(message)
+    }
+  }
 
   const handleSubmit = () => {
 
-    if (hasFirstPolicy && hasSecondPolicy)
+    if (hasFirstPolicy && hasSecondPolicy) {
+      setLoader(true);
+
       axios.post("https://kz-backend.vsk-trust.ru/api/v1/kz/buy", {
         amount: data.result.amount,
         policy_number: data.result.policy_number,
         holder_type: data.holder_type
       })
         .then(({ data: response }) => {
+          setLoader(false);
           window.open(response.data.buy_url);
 
           setStep(-1);
           scrollTo("main-cost");
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(({ response }) => {
+          setLoader(false);
+          if (response.data.error)
+            showError(response.data.error)
         })
+    }
   }
 
   return (
     <div className={classes.content}>
+      {loader && <Loader />}
+      {error && <ErrorModel message={error} onCancel={() => setError(null)} />}
+
       <div className={classes.innerContent}>
         <p className={classes.innerLabel}>Количество застрахованных:</p>
         <h3 className={classes.innerTitle}>{data.insureds.length}</h3>
