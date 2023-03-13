@@ -11,6 +11,7 @@ import MainCostRegistrationInsured from "@/components/main-cost/registration/ins
 import { useRegistration } from "@/context/RegistrationContext";
 import ErrorModel from "@/components/main-cost/modal/error";
 import { useStyles } from "@/context/StyleContext";
+import Loader from "@/components/loader";
 
 
 function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmit }) {
@@ -25,6 +26,7 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
   const [holder, setHolder] = useState({});
 
   let [error, setError] = useState(null);
+  const [loader, setLoader] = useState(false);
 
   const renderedInsureds = []
 
@@ -247,15 +249,18 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
       return setData({ ...data, errors })
     }
 
+    setLoader(true);
 
     axios.post("https://kz-backend.vsk-trust.ru/api/v1/kz/calculate_form", data)
       .then(({ data: response }) => {
+        setLoader(false);
         if (response && response.data) {
           setData({ ...data, result: response.data })
           onSubmit()
         }
       })
       .catch(({ response }) => {
+        setLoader(false);
         if (response.data.error)
           showError(response.data.error)
       })
@@ -263,6 +268,8 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
 
   return (
     <>
+      {loader && <Loader />}
+
       {error && <ErrorModel message={error} onCancel={() => setError(null)} />}
 
       <h3 className={classes.miniTitle} style={{ marginTop: 25 }}>Данные по Страхователю</h3>

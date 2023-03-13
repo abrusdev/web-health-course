@@ -17,6 +17,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <div id="portal" />
+          <div id="loader" />
           <NextScript />
         </body>
       </Html>

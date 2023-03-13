@@ -8,6 +8,7 @@ import MainPartner from "@/components/main-partner";
 import MainFooter from "@/components/main-footer";
 import MainFooterMobile from "@/components/main-footer/mobile";
 import { useStyles } from "@/context/StyleContext";
+import Loader from "@/components/loader";
 
 function HomePage() {
 

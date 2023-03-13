@@ -5,7 +5,7 @@ const useStyles = makeStyles(() => ({
   content: {
     display: 'flex',
     gap: 10,
-    justifyContent: 'center',
+    justifyContent:  ({ isMobile }) => isMobile ? 'flex-start' : 'center',
     flexDirection: ({ isMobile }) => isMobile ? 'column' : 'row',
 
     position: 'relative',

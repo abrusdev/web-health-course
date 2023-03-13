@@ -11,6 +11,7 @@ import axios from "axios";
 import { useRegistration } from "@/context/RegistrationContext";
 import ErrorModel from "@/components/main-cost/modal/error";
 import { useStyles as useCustomStyles } from "@/context/StyleContext";
+import Loader from "@/components/loader";
 
 function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit }) {
   const { isMobile } = useCustomStyles()
@@ -22,6 +23,7 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
   const [org, setOrg] = useState({});
   const [holder, setHolder] = useState({});
 
+  const [loader, setLoader] = useState(false);
   let [error, setError] = useState(null);
 
   const renderedInsureds = []
@@ -87,14 +89,18 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
   }
 
   const handleSend = () => {
+    setLoader(true);
+
     axios.post("https://kz-backend.vsk-trust.ru/api/v1/kz/calculate_form", data)
       .then(({ data: response }) => {
+        setLoader(false);
         if (response && response.data) {
           setData({ ...data, result: response.data })
           onSubmit()
         }
       })
       .catch(({ response }) => {
+        setLoader(false);
         if (response.data.error)
           showError(response.data.error)
       })
@@ -102,6 +108,8 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
 
   return (
     <>
+      {loader && <Loader />}
+
       {error && <ErrorModel message={error} onCancel={() => setError(null)} />}
 
       {showExcelModal && <ExcelModal onCancel={() => setShowExcelModal(false)} onSuccess={handleSuccess} />}
@@ -186,8 +194,8 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
       <p className={classes.addBtn}
          style={{ marginTop: 20 }}
          onClick={() => {
-        if (insuredCount > 1) setInsuredCount(insuredCount - 1)
-      }}>
+           if (insuredCount > 1) setInsuredCount(insuredCount - 1)
+         }}>
         - Удалить одного Застрахованного ›
       </p>
 

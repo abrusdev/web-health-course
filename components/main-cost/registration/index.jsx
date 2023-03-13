@@ -15,7 +15,7 @@ const useStyles = makeStyles(() => ({
   activeInnerContent: {
     height: ({
       type, step, insuredCount, isMobile
-    }) => step === 2 ? 800 : (type === 0 ? (isMobile ? 1800 : 1400) : (isMobile ? 1450 : 1300)) + (insuredCount * (isMobile ? 540 : 380)),
+    }) => step === 2 ? 1100 : (type === 0 ? (isMobile ? 1800 : 1400) : (isMobile ? 1450 : 1300)) + (insuredCount * (isMobile ? 540 : 380)),
   }
 }))
 
