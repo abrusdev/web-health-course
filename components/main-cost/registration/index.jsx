@@ -8,21 +8,26 @@ import MainCostRegistrationBusiness from "@/components/main-cost/registration/fo
 import { useRegistration } from "@/context/RegistrationContext";
 import MainCostRegistrationPayment from "@/components/main-cost/registration/payment";
 import ErrorModel from "@/components/main-cost/modal/error";
+import { useStyles as useCustomStyles } from "@/context/StyleContext";
 
 
 const useStyles = makeStyles(() => ({
   activeInnerContent: {
-    height: ({ type, step, insuredCount }) => step === 2 ? 800 : (type === 0 ? 1400 : 1300) + (insuredCount * 380),
+    height: ({
+      type, step, insuredCount, isMobile
+    }) => step === 2 ? 800 : (type === 0 ? (isMobile ? 1900 : 1400) : (isMobile ? 1700 : 1300)) + (insuredCount * 380),
   }
 }))
 
 function MainCostRegistration({ isVisible, step, onSubmit }) {
 
+  const { isMobile } = useCustomStyles()
+
   const { data, setData } = useRegistration()
 
   const [insuredCount, setInsuredCount] = useState(1);
 
-  const styles = useStyles({ type: data.holder_type, step, insuredCount });
+  const styles = useStyles({ type: data.holder_type, step, insuredCount, isMobile });
 
   useEffect(() => {
     if (isVisible)
@@ -34,7 +39,8 @@ function MainCostRegistration({ isVisible, step, onSubmit }) {
     <div className={classes.content}>
       <div className={cn(classes.innerContent, isVisible && cn(classes.activeInnerContent, styles.activeInnerContent))}>
         <h2 className={classes.title}>Оформление программы Курс здоровья</h2>
-        <p className={classes.desc}>для {data.holder_type === 0 ? "физических лиц" : "юридических лиц/ ИП"} тариф {data.tariff_type === 0 ? "Базовый" : "Премиум"}</p>
+        <p
+          className={classes.desc}>для {data.holder_type === 0 ? "физических лиц" : "юридических лиц/ ИП"} тариф {data.tariff_type === 0 ? "Базовый" : "Премиум"}</p>
 
         <div className={classes.statusesContent}>
           <MainCostRegistrationStatus step={1} title='Выбор тарифа' isPassed={step >= 1} width={226} />

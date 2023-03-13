@@ -101,3 +101,12 @@
 .btn:hover {
     opacity: 0.8;
 }
+
+@media all and (max-width: 1160px) {
+    .withTwoItems {
+        width: 100% !important;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}

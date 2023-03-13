@@ -10,9 +10,12 @@ import axios from "axios";
 import MainCostRegistrationInsured from "@/components/main-cost/registration/insured";
 import { useRegistration } from "@/context/RegistrationContext";
 import ErrorModel from "@/components/main-cost/modal/error";
+import { useStyles } from "@/context/StyleContext";
 
 
 function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmit }) {
+
+  const { isMobile } = useStyles();
 
   const { data, setData } = useRegistration()
 
@@ -268,7 +271,7 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
         <div>
           <p className={classes.label}>ФИО</p>
           <Input
-            width={524} mt={8} hasError={!!data.errors && !!data.errors.full_name}
+            width={isMobile ? '100%' : 524} mt={8} hasError={!!data.errors && !!data.errors.full_name}
             onChange={(value) => handleChangeUser({ full_name: value })}
           />
         </div>
@@ -288,21 +291,21 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
 
       <p className={classes.label} style={{ marginTop: 24 }}>Адрес</p>
       <Input
-        width={740} mt={8} hasError={!!data.errors && !!data.errors.address}
+        width={isMobile ? '100%' : 740} mt={8} hasError={!!data.errors && !!data.errors.address}
         onChange={(value) => handleChangeHolder({ address: value })}
       />
 
       <div className={classes.withTwoItems} style={{ marginTop: 24, width: 586 }}>
         <div>
           <p className={classes.label}>Телефон</p>
-          <PhoneInput width={244} mt={8} placeholder='+7(___)___-__-__'
+          <PhoneInput width={isMobile ? '100%' : 244} mt={8} placeholder='+7(___)___-__-__'
                       hasError={!!data.errors && !!data.errors.phone}
                       onChange={(value) => handleChangeHolder({ phone: value })} />
         </div>
 
         <div>
           <p className={classes.label}>Email</p>
-          <Input width={318} mt={8}
+          <Input width={isMobile ? '100%' : 318} mt={8}
                  hasError={!!data.errors && !!data.errors.email}
                  onChange={(value) => handleChangeHolder({ email: value })} />
         </div>
@@ -310,13 +313,13 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
 
       <p className={classes.label} style={{ marginTop: 24 }}>Паспортные данные</p>
       <div className={classes.withTwoItems} style={{ marginTop: 24, width: 586 }}>
-        <Input width={154} mt={8} placeholder='Серия'
+        <Input width={154} mt={isMobile ? 0 : 8} placeholder='Серия'
                hasError={!!data.errors && !!data.errors.passSerial}
                onChange={(value) => handleChangeUser({ passport_serial: value })} />
-        <Input width={204} mt={8} placeholder='Номер'
+        <Input width={204} mt={isMobile ? 0 : 8} placeholder='Номер'
                hasError={!!data.errors && !!data.errors.passNumber}
                onChange={(value) => handleChangeUser({ passport_number: value })} />
-        <DatePicker width={204} mt={8}
+        <DatePicker width={204} mt={isMobile ? 0 : 8}
                     hasError={!!data.errors && !!data.errors.dateIssue}
                     onChange={(value) => handleChangeUser({ date_issue: value })} />
       </div>

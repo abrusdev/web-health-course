@@ -4,8 +4,11 @@ import { useState } from "react";
 import MultiCheckBox from "@/components/check-box/multi";
 import PhoneInput from "@/components/input/phone";
 import { useRegistration } from "@/context/RegistrationContext";
+import { useStyles } from "@/context/StyleContext";
 
 function MainCostRegistrationInsured({ classes, item = {}, onChange }) {
+
+  const { isMobile } = useStyles();
 
   const { data, setData } = useRegistration();
   const [insured, setInsured] = useState(item);
@@ -55,7 +58,7 @@ function MainCostRegistrationInsured({ classes, item = {}, onChange }) {
         <div>
           <p className={classes.label}>Email*</p>
           <Input
-            width={318} mt={8}
+            width={isMobile ? '100%' : 318} mt={8}
             defaultValue={item && item.email ? item.email : ""}
             hasError={!!data.errors && !!data.errors.insuredEmail && !insured.email}
             onChange={(value) => handleChange({ email: value })} />
@@ -64,7 +67,7 @@ function MainCostRegistrationInsured({ classes, item = {}, onChange }) {
 
       <p className={classes.label} style={{ marginTop: 24 }}>Адрес</p>
       <Input
-        width={740} mt={8}
+        width={isMobile ? '100%' : 740} mt={8}
         defaultValue={item && item.address ? item.address : ""}
         hasError={!!data.errors && !!data.errors.insuredAddress && !insured.address}
         onChange={(value) => handleChange({ address: value })} />
