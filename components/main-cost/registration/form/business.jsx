@@ -10,8 +10,10 @@ import ExcelModal from "@/components/main-cost/modal/excel";
 import axios from "axios";
 import { useRegistration } from "@/context/RegistrationContext";
 import ErrorModel from "@/components/main-cost/modal/error";
+import { useStyles as useCustomStyles } from "@/context/StyleContext";
 
 function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit }) {
+  const { isMobile } = useCustomStyles()
 
   const { data, setData } = useRegistration()
 
@@ -113,30 +115,30 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
 
       <p className={classes.label} style={{ marginTop: 24 }}>Наименование организации</p>
       <Input
-        width={580} mt={8}
+        width={isMobile ? '100%' : 580} mt={8}
         onChange={(value) => handleChangeOrg({ full_name: value })}
       />
 
       <p className={classes.label} style={{ marginTop: 24 }}>Адрес местонахождения</p>
       <TextArea
-        width={580} mt={12}
+        width={isMobile ? '100%' : 580} mt={12}
         onChange={(value) => handleChangeHolder({ address: value })} />
 
       <p className={classes.label} style={{ marginTop: 24 }}>ИНН</p>
       <Input
-        width={580} mt={8}
+        width={isMobile ? '100%' : 580} mt={8}
         onChange={(value) => handleChangeOrg({ inn: value })}
       />
 
       <p className={classes.label} style={{ marginTop: 24 }}>КПП</p>
       <Input
-        width={580} mt={8}
+        width={isMobile ? '100%' : 580} mt={8}
         onChange={(value) => handleChangeOrg({ kpp: value })}
       />
 
       <p className={classes.label} style={{ marginTop: 24 }}>ОГРН</p>
       <Input
-        width={580} mt={8}
+        width={isMobile ? '100%' : 580} mt={8}
         onChange={(value) => handleChangeOrg({ ogrn: value })}
       />
 
@@ -180,6 +182,14 @@ function MainCostRegistrationBusiness({ insuredCount, setInsuredCount, onSubmit 
           + Добавить Застрахованных списком ›
         </p>
       </div>
+
+      <p className={classes.addBtn}
+         style={{ marginTop: 20 }}
+         onClick={() => {
+        if (insuredCount > 1) setInsuredCount(insuredCount - 1)
+      }}>
+        - Удалить одного Застрахованного ›
+      </p>
 
       <button className={classes.btn} onClick={handleSend}>Отправить данные</button>
     </>

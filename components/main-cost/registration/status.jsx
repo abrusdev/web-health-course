@@ -1,10 +1,12 @@
 import { makeStyles } from "@material-ui/core";
+import { useStyles as useCustomStyles } from "@/context/StyleContext";
 
 const useStyles = makeStyles(() => ({
   content: {
     display: 'flex',
     gap: 10,
     justifyContent: 'center',
+    flexDirection: ({ isMobile }) => isMobile ? 'column' : 'row',
 
     position: 'relative',
     width: ({ width }) => width,
@@ -24,15 +26,15 @@ const useStyles = makeStyles(() => ({
     }
   },
   step: {
-    width: 30,
-    height: 30,
+    width: ({ isMobile }) => isMobile ? 20 : 30,
+    height: ({ isMobile }) => isMobile ? 20 : 30,
 
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
 
     fontWeight: 700,
-    fontSize: 16,
+    fontSize: ({ isMobile }) => isMobile ? 12 :16,
     lineHeight: '120%',
 
     color: ({ isPassed }) => isPassed ? '#ffffff' : '#BADBFF',
@@ -41,13 +43,15 @@ const useStyles = makeStyles(() => ({
   },
   title: {
     fontWeight: 400,
-    fontSize: 24,
+    fontSize: ({ isMobile }) => isMobile ? 16 : 24,
     lineHeight: '120%',
   },
 }))
 
 function MainCostRegistrationStatus({ step, title, width, isPassed }) {
-  const styles = useStyles({ width, isPassed })
+  const { isMobile } = useCustomStyles()
+
+  const styles = useStyles({ width, isPassed, isMobile })
 
   return (
     <div className={styles.content}>

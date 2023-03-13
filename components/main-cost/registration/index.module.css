@@ -109,4 +109,8 @@
         flex-direction: column;
         gap: 15px;
     }
+
+    .addBtn {
+        margin-top: 0px;
+    }
 }

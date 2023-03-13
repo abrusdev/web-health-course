@@ -24,7 +24,7 @@ function MainCostRegistrationInsured({ classes, item = {}, onChange }) {
         <div>
           <p className={classes.label}>ФИО*</p>
           <Input
-            width={524} mt={8}
+            width={isMobile ? '100%' : 524} mt={8}
             defaultValue={item && item.full_name ? item.full_name : ""}
             hasError={!!data.errors && !!data.errors.insuredName && !insured.full_name}
             onChange={(value) => handleChange({ full_name: value })} />

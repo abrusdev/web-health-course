@@ -324,7 +324,7 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
                     onChange={(value) => handleChangeUser({ date_issue: value })} />
       </div>
 
-      <TextArea width={587} mt={12} placeholder='Кем выдан'
+      <TextArea width={isMobile ? '100%' : 587} mt={12} placeholder='Кем выдан'
                 hasError={!!data.errors && !!data.errors.whom}
                 onChange={(value) => handleChangeUser({ whom: value })} />
 
@@ -335,7 +335,7 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
       </div>
 
       <p className={classes.label} style={{ marginTop: 24 }}>ИНН</p>
-      <Input width={364} mt={12} placeholder='ИНН'
+      <Input width={isMobile ? '100%' : 364} mt={12} placeholder='ИНН'
              hasError={!!data.errors && !!data.errors.inn}
              onChange={(value) => handleChangeUser({ inn: value })} />
 
@@ -349,9 +349,18 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
 
       {renderedInsureds}
 
-      <p className={classes.addBtn} onClick={() => setInsuredCount(insuredCount + 1)}>
-        + Добавить еще одного Застрахованного ›
-      </p>
+      <div className={classes.withTwoItems} style={{ marginTop: 24, width: isMobile ? '100%' : 686 }}>
+
+        <p className={classes.addBtn} onClick={() => setInsuredCount(insuredCount + 1)}>
+          + Добавить еще одного Застрахованного ›
+        </p>
+
+        <p className={classes.addBtn} onClick={() => {
+          if (insuredCount > 1) setInsuredCount(insuredCount - 1)
+        }}>
+          - Удалить одного Застрахованного ›
+        </p>
+      </div>
 
       <button className={classes.btn} onClick={handleSend}>Отправить данные</button>
     </>
