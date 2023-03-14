@@ -33,6 +33,8 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
   const [lastDefaultInsured, setLastDefaultInsured] = useState({});
 
   function fetchInsureds() {
+    const list = []
+
     for (let i = 0; i < insuredCount; i++) {
       const handleChangeInsured = (value) => {
         if (!data.insureds) data.insureds = []
@@ -42,14 +44,12 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
         setData({ ...data })
       }
 
-      const list = []
-
       list.push(
         <MainCostRegistrationInsured key={i} classes={classes} onChange={handleChangeInsured} />
       )
-
-      setRenderedInsureds(list);
     }
+
+    setRenderedInsureds(list);
   }
 
   const handleChangeInsured = () => {
@@ -73,7 +73,7 @@ function MainCostRegistrationIndividual({ insuredCount, setInsuredCount, onSubmi
 
   useEffect(() => {
     handleChangeInsured()
-  }, [isItselfInsured, user, holder]);
+  }, [isItselfInsured, user, holder, insuredCount]);
 
   const handleChangeUser = (props) => {
     if (isItselfInsured)
